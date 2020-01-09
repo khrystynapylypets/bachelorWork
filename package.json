@@ -1,0 +1,46 @@
+{
+  "name": "bachelor-work",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "all-install": "npm install && cd client && npm install",
+    "build": "cd client && npm run build",
+    "serve": "nodemon ./server/index.js --exec babel-node",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run serve\" \"npm run client\"",
+    "lint:js": "eslint --ext .jsx --ext .js client/src",
+    "lint:sass": "sass-lint --verbose -c .sass-lint.yml",
+    "lint": "npm run lint:js && npm run lint:sass"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khrystynapylypets/bachelorWork"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-eslint": "^10.0.3",
+    "babel-preset-env": "^1.7.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.8.6",
+    "nodemon": "^2.0.2",
+    "sass-lint": "^1.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "concurrently": "^3.5.1",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "node-env-run": "^3.0.2"
+  }
+}
