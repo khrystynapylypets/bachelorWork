@@ -8,10 +8,13 @@
     "serve": "nodemon ./server/index.js --exec babel-node",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run serve\" \"npm run client\"",
-    "lint:js": "eslint --ext .jsx --ext .js client/src",
+    "lint:js": "eslint --ext .jsx --ext .js client/src server/",
     "lint:sass": "sass-lint --verbose -c .sass-lint.yml",
     "lint": "npm run lint:js && npm run lint:sass"
   },
+  "precommit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/khrystynapylypets/bachelorWork"
