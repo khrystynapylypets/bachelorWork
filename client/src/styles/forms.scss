@@ -1,0 +1,20 @@
+@import 'variables';
+
+
+.form {
+  padding: 40px 30px;
+  margin: 40px auto;
+  background: $white;
+  border-radius: 12px;
+
+  label {
+    margin-bottom: 3px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
