@@ -1,0 +1,20 @@
+@import 'variables';
+
+@mixin for-mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (min-width: $tablet-min) and (max-width: $tablet-max) {
+    @content;
+  }
+}
+
+@mixin for-tablet-and-mobile {
+  @media (max-width: $tablet-max) {
+    @content;
+  }
+}
+
