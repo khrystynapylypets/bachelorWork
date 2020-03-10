@@ -5,6 +5,6 @@ const router = new express.Router();
 
 router.use(express.json());
 
-router.use('/user', users);
+router.use('/api/users', users);
 
 export default router;

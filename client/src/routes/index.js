@@ -5,6 +5,7 @@ import LogInContainer from '../containers/LogInContainer'
 import RegistrationContainer from '../containers/RegistrationContainer'
 import ForgotPasswordContainer from '../containers/ForgotPasswordContainer'
 import { NotFound } from '../components/NotFound'
+import { HomePage } from '../components/HomePage';
 
 export const routes = (
   <Router history={history}>
@@ -12,6 +13,7 @@ export const routes = (
       <Route path='/login' component={LogInContainer} />
       <Route path='/register' component={RegistrationContainer} />
       <Route path='/forgot-password' component={ForgotPasswordContainer} />
+      <Route path='/home' component={HomePage} />
       <Route path='*' component={NotFound} />
     </Switch>
   </Router>
