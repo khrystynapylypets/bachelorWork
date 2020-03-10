@@ -10,10 +10,10 @@ import nulpLogo from './assets/nulp_logo.jpg';
 export const PublicLayout = ({ children }) => (
   <Container className='public-layout'>
     <Row>
-      <Col md={4} className='left'>
+      <Col lg={5} className='left'>
         {children}
       </Col>
-      <Col md={8} className='right'>
+      <Col lg={7} className='right'>
         <img
           src={nulpLogo}
           alt='NULP logo'

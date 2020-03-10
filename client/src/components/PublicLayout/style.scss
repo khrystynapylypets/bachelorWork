@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .public-layout {
   width: 100%;
@@ -14,6 +15,10 @@
   }
 
   .right {
+    @include for-tablet-and-mobile {
+      display: none;
+    }
+
     position: relative;
     display: flex;
     align-items: center;
@@ -35,3 +40,4 @@
     opacity: .5;
   }
 }
+

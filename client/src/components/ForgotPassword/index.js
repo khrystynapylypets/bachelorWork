@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Field } from 'redux-form'
 import { Input } from '../../containers/CommonFields/Input'
-import { Password } from '../../containers/CommonFields/Password'
 import { PublicLayout } from '../PublicLayout'
-import { Link } from 'react-router-dom'
 import {
   Container,
   Row,
@@ -12,9 +10,8 @@ import {
   Form,
   Spinner,
 } from 'react-bootstrap'
-import './style.scss'
 
-export class LogIn extends Component {
+export class ForgotPassword extends Component {
   render() {
     const { handleSubmit, invalid, submitting, onSubmit } = this.props
 
@@ -22,7 +19,7 @@ export class LogIn extends Component {
       <PublicLayout>
         <form onSubmit={handleSubmit(onSubmit)} className='login-form form'>
           <Container>
-            <h3 className='title'>Авторизуватись</h3>
+            <h3 className='title'>Відновити пароль</h3>
             <Row>
               <Col md={12}>
                 <Form.Group>
@@ -33,18 +30,6 @@ export class LogIn extends Component {
                     type='email'
                     placeholder='Введіть вашу електронну пошту'
                     id='email'
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={12}>
-                <Form.Group controlId='password'>
-                  <Form.Label>Пароль<sup>*</sup></Form.Label>
-                  <Field
-                    name='password'
-                    component={Password}
-                    type='password'
-                    placeholder='Введіть ваш пароль'
-                    id='password'
                   />
                 </Form.Group>
               </Col>
@@ -59,11 +44,6 @@ export class LogIn extends Component {
                 >
                   {submitting ? <Spinner animation='border' variant='primary' /> : 'Відправити'}
                 </Button>
-              </Col>
-              <Col md={12}>
-                <p className='forgot-password'>
-                  Forgot <Link to='/forgot-password'>password?</Link>
-                </p>
               </Col>
             </Row>
           </Container>
