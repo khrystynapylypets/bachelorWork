@@ -26,7 +26,7 @@ export const userReducer = (prevState = initState, action) => {
             dateBirth: action.user.dateBirth,
           }
         },
-        allUsersIds: [...prevState.allIds, action.user.id],
+        allUsersIds: [...prevState.allUsersIds, action.user.id],
         error: '',
       }
     case REGISTER_FAIL:

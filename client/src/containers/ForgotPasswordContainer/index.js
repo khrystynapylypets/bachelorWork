@@ -27,9 +27,9 @@ class ForgotPasswordContainer extends Component {
   }
 }
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = {
   resetPassword,
-})
+}
 
 export default connect(
   null,

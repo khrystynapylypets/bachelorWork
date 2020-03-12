@@ -27,9 +27,9 @@ class LogInContainer extends Component {
   }
 }
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = {
   loginUser,
-})
+}
 
 export default connect(
   null,

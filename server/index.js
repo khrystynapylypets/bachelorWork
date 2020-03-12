@@ -7,7 +7,10 @@ import routes from './routes'
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+  origin: envConfig.FRONT_DOMAIN,
+  exposedHeaders: ['access-token'],
+}))
 
 connect()
 
