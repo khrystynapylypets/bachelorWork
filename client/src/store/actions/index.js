@@ -18,9 +18,8 @@ export const registerUser = (user) => ({
   user,
 })
 
-export const registerSuccess = (userId) => ({
+export const registerSuccess = () => ({
   type: REGISTER_SUCCESS,
-  userId,
 })
 
 export const registerFail = (error) => ({
@@ -43,19 +42,8 @@ export const loginFail = (error) => ({
   error,
 })
 
-export const logoutUser = (data) => ({
+export const logoutUser = () => ({
   type: LOGOUT,
-  data,
-})
-
-export const logoutSuccess = (data) => ({
-  type: LOGOUT_SUCCESS,
-  data,
-})
-
-export const logoutFail = (error) => ({
-  type: LOGOUT_FAIL,
-  error,
 })
 
 export const resetPassword = (email) => ({

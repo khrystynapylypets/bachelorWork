@@ -12,7 +12,6 @@ export const userReducer = (prevState = initState, action) => {
     case REGISTER_SUCCESS:
       return {
           ...prevState,
-        userId: action.userId,
         error: '',
       }
     case REGISTER_FAIL:

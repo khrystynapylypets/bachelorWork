@@ -12,9 +12,10 @@ export const createUser = async (req, res) => {
 
     let newUser = await createUserModel(userData)
 
-    let token = encodeJWTToken(newUser._id, envConfig.JWT_KEY, envConfig.TOKEN_TIME)
 
     await newUser.save()
+
+    let token = encodeJWTToken(newUser._id, envConfig.JWT_KEY, envConfig.TOKEN_TIME)
 
     return res
       .header('access-token', token)

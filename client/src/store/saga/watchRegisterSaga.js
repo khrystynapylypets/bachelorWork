@@ -3,7 +3,7 @@ import { REGISTER } from '../actions/constants'
 import { registerSuccess, registerFail } from '../actions'
 import { API } from '../api'
 import { setToken } from '../../helpers/token'
-import { reset } from 'redux-form'
+import history from '../../history';
 
 function* workRegisterUser({ user }) {
   try {
@@ -12,13 +12,15 @@ function* workRegisterUser({ user }) {
 
     yield put(registerSuccess(response.data.user.id))
 
+    history.push('/home')
+
   } catch (e) {
     let errorMessage = e.response ? e.response.data.message : e.message
     yield put(registerFail(errorMessage))
   }
 }
 
-export default function* watchRegisterUser() {
+export function* watchRegisterUser() {
   yield takeEvery(REGISTER, workRegisterUser)
 }
 
