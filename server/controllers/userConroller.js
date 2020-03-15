@@ -18,7 +18,7 @@ export const createUser = async (req, res) => {
 
     return res
       .header('access-token', token)
-      .status(200)
+      .status(201)
       .send({
         user: {
           id: newUser._id,
@@ -33,7 +33,7 @@ export const createUser = async (req, res) => {
         message: 'The user is successfully registered.',
       })
   } catch (error) {
-    return res.status(500).send({ message: error.message })
+    return res.status(400).send({ message: error.message })
   }
 }
 

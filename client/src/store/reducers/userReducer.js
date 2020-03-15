@@ -4,8 +4,6 @@ import {
 } from '../actions/constants'
 
 const initState = {
-  userById: {},
-  allUsersIds: [],
   error: '',
 }
 
@@ -14,19 +12,7 @@ export const userReducer = (prevState = initState, action) => {
     case REGISTER_SUCCESS:
       return {
           ...prevState,
-        userById: {
-          [action.user.id]: {
-            id: action.user.id,
-            email: action.user.email,
-            firstName: action.user.firstName,
-            secondName: action.user.secondName,
-            lastName: action.user.lastName,
-            dateWork: action.user.dateWork,
-            academicStatus: action.user.academicStatus,
-            dateBirth: action.user.dateBirth,
-          }
-        },
-        allUsersIds: [...prevState.allUsersIds, action.user.id],
+        userId: action.userId,
         error: '',
       }
     case REGISTER_FAIL:

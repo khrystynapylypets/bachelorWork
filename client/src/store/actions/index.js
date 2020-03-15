@@ -18,9 +18,9 @@ export const registerUser = (user) => ({
   user,
 })
 
-export const registerSuccess = (user) => ({
+export const registerSuccess = (userId) => ({
   type: REGISTER_SUCCESS,
-  user,
+  userId,
 })
 
 export const registerFail = (error) => ({
