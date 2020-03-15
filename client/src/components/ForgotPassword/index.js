@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field } from 'redux-form'
-import { Input } from '../../containers/CommonFields/Input'
+import { Input } from '../CommonFields/Input'
 import { PublicLayout } from '../PublicLayout'
 import {
   Container,

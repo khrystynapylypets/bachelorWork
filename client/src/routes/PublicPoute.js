@@ -6,7 +6,7 @@ export const PublicRoute = ({ component: Component, ...rest }) => {
   console.log(getToken())
   const routeComponent = (props) => (
     getToken()
-      ? <Redirect to={{ pathName: '/home' }}/>
+      ? <Redirect to='/home'q/>
       : <Component {...props}/>
   )
 

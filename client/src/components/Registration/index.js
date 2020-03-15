@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field } from 'redux-form'
-import { Input } from '../../containers/CommonFields/Input'
-import { Password } from '../../containers/CommonFields/Password'
+import { Input } from '../CommonFields/Input'
+import { Password } from '../CommonFields/Password'
 import { PublicLayout } from '../PublicLayout'
 import {
   Container,

@@ -15,7 +15,7 @@ export const routes = (
       <PublicRoute path='/login' component={LogInContainer}/>
       <PublicRoute path='/register' component={RegistrationContainer}/>
       <PublicRoute path='/forgot-password' component={ForgotPasswordContainer}/>
-      <Router path='/home' component={HomePage}/>
+      <PrivateRoute path='/home' component={HomePage}/>
       <Route path='*' component={NotFound}/>
     </Switch>
   </Router>

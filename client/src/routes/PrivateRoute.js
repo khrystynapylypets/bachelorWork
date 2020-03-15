@@ -6,7 +6,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
   const routeComponent = (props) => (
     getToken()
       ? <Component {...props}/>
-      : <Redirect to={{ pathName: '/login' }}/>
+      : <Redirect to='/login'/>
   )
 
   return <Route {...rest} render={routeComponent}/>
