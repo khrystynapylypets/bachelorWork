@@ -1,5 +1,5 @@
 import React from 'react'
-import LogOut from '../../containers/LogoutContainer'
+import LogOut from '../../containers/LogOutContainer'
 
 export const HomePage = () => (
   <div>

@@ -4,25 +4,32 @@ import { reduxForm } from 'redux-form'
 import { validate } from '../../utils/validation'
 import { connect } from 'react-redux'
 import { loginUser } from '../../store/actions'
+import { ErrorAlert } from '../../components/ErrorAlert'
 
 
 class LogInContainer extends Component {
   handleOnSubmit = (user) => {
-    const { loginUser } = this.props
+    const { loginUser, reset } = this.props
 
     loginUser(user)
+    reset()
   }
 
   render() {
-    const { handleSubmit, submitting, invalid } = this.props
+    const { handleSubmit, submitting, invalid, errorMessage } = this.props
 
     return (
-      <LogIn
-        handleSubmit={handleSubmit}
-        onSubmit={this.handleOnSubmit}
-        invalid={invalid}
-        submitting={submitting}
-      />
+        <>
+          {errorMessage.length > 0 &&
+          <ErrorAlert description={errorMessage}/>
+          }
+          <LogIn
+            handleSubmit={handleSubmit}
+            onSubmit={this.handleOnSubmit}
+            invalid={invalid}
+            submitting={submitting}
+          />
+        </>
     )
   }
 }
@@ -31,8 +38,12 @@ const mapDispatchToProps = {
   loginUser,
 }
 
+const mapStateToProps = ({ user }) => ({
+  errorMessage: user.error,
+})
+
 export default connect(
-  null,
+    mapStateToProps,
   mapDispatchToProps,
 )(
   reduxForm({
