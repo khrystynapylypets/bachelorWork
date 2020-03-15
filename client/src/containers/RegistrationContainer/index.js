@@ -4,35 +4,53 @@ import { reduxForm } from 'redux-form'
 import { validate } from '../../utils/validation'
 import { registerUser } from '../../store/actions'
 import { connect } from 'react-redux'
+import { ErrorAlert } from '../../components/ErrorAlert'
 
 class RegistrationContainer extends Component {
-  handleOnSubmit = (user) => {
-    const { registerUser } = this.props
 
-    registerUser(user)
+  componentDidMount() {
+    window.scrollTo(0, 0)
   }
 
+  handleOnSubmit = (user) => {
+    const { registerUser, reset } = this.props
+
+    registerUser(user)
+    reset()
+  }
+
+
   render() {
-    const { handleSubmit, submitting, invalid } = this.props
+    const { handleSubmit, submitting, invalid, errorMessage } = this.props
+    console.log(errorMessage)
 
     return (
-      <Registration
-        handleSubmit={handleSubmit}
-        onSubmit={this.handleOnSubmit}
-        submitting={submitting}
-        invalid={invalid}
-      />
+      <>
+        {errorMessage.length > 0 &&
+        <ErrorAlert description={errorMessage}/>
+        }
+        <Registration
+          handleSubmit={handleSubmit}
+          onSubmit={this.handleOnSubmit}
+          submitting={submitting}
+          invalid={invalid}
+        />
+      </>
     )
   }
 }
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = {
   registerUser,
+}
+
+const mapStateToProps = ({ user }) => ({
+  errorMessage: user.error,
 })
 
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(
   reduxForm({

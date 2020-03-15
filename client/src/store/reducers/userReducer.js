@@ -1,3 +1,26 @@
-export const userReducer = (prevState = {}) => {
-  return prevState;
+import {
+  REGISTER_FAIL,
+  REGISTER_SUCCESS,
+} from '../actions/constants'
+
+const initState = {
+  error: '',
+}
+
+export const userReducer = (prevState = initState, action) => {
+  switch(action.type) {
+    case REGISTER_SUCCESS:
+      return {
+          ...prevState,
+        userId: action.userId,
+        error: '',
+      }
+    case REGISTER_FAIL:
+      return {
+          ...prevState,
+        error: action.error,
+      }
+    default:
+      return prevState
+  }
 }

@@ -1,7 +1,4 @@
 import mongoose from 'mongoose'
-import bcrypt from 'bcrypt'
-
-const saltRounds = 10
 
 const UserSchema = new mongoose.Schema({
   email: {
@@ -17,8 +14,24 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  secondName: {
+    type: String,
+    required: true,
+  },
   lastName: {
     type: String,
+    required: true,
+  },
+  dateWork: {
+    type: Date,
+    required: true,
+  },
+  academicStatus: {
+    type: String,
+    required: true,
+  },
+  dateBirth: {
+    type: Date,
     required: true,
   },
   created: {
@@ -27,23 +40,5 @@ const UserSchema = new mongoose.Schema({
   },
 })
 
-//hashing password
-UserSchema.pre('save', (next) => {
-  if (this.isNew || this.isModified('password')) {
-    const document = this
-
-    bcrypt.hash(document.password, saltRounds,
-      (error, hashedPassword) => {
-        if (error) {
-          next(error)
-        } else {
-          document.password = hashedPassword
-          next()
-        }
-      })
-  } else {
-    next()
-  }
-})
 
 export default mongoose.model('User', UserSchema)
