@@ -26,7 +26,6 @@ export const findUser = async({email, password}) => {
   }
 
   let isPasswordMatch = comparePassword(password, user.password)
-  console.log(isPasswordMatch)
 
   if(!isPasswordMatch) {
     throw new Error('Incorrect password!')
