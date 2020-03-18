@@ -1,7 +1,7 @@
 import User from '../db/models/User'
 import { hashPassword, comparePassword } from '../helpers/hashPassword'
 
-export const createUserModel = async({email, password, firstName, secondName, lastName, dateWork, academicStatus, dateBirth}) => {
+export const createUserModel = async({email, password, firstName, secondName, lastName, dateWork, academicStatus, dateBirth, isAdmin}) => {
   let user = await User.findOne({
     $or: [{'email': email}],
   })
@@ -13,7 +13,7 @@ export const createUserModel = async({email, password, firstName, secondName, la
   }
 
   return new User(
-      {email, password : hashPassword(password), firstName, secondName, lastName, dateWork, academicStatus, dateBirth})
+      {email, password : hashPassword(password), firstName, secondName, lastName, dateWork, academicStatus, dateBirth, isAdmin: isAdmin || false})
 }
 
 export const findUser = async({email, password}) => {
