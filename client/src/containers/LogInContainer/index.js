@@ -8,6 +8,7 @@ import { ErrorAlert } from '../../components/ErrorAlert'
 
 
 class LogInContainer extends Component {
+
   handleOnSubmit = (user) => {
     const { loginUser, reset } = this.props
 
@@ -21,7 +22,7 @@ class LogInContainer extends Component {
     return (
         <>
           {errorMessage.length > 0 &&
-          <ErrorAlert description={errorMessage}/>
+          <ErrorAlert description={errorMessage} />
           }
           <LogIn
             handleSubmit={handleSubmit}

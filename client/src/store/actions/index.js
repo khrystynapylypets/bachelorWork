@@ -6,7 +6,6 @@ import {
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
-  LOGOUT_FAIL,
   LOGOUT_SUCCESS,
   RESET_PASSWORD,
   RESET_PASSWORD_FAIL,
@@ -44,6 +43,10 @@ export const loginFail = (error) => ({
 
 export const logoutUser = () => ({
   type: LOGOUT,
+})
+
+export const logoutSuccess = () => ({
+  type: LOGOUT_SUCCESS,
 })
 
 export const resetPassword = (email) => ({

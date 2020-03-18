@@ -9,7 +9,10 @@ function* workLoginUser({ user }) {
   try {
     let response = yield call(loginUser, user)
     setToken(response.headers[ 'access-token' ])
-    yield put(loginSuccess(response.data.user.id))
+    yield put(loginSuccess({
+      id: response.data.user.id,
+      isAdmin: response.data.user.isAdmin,
+    }))
 
     history.push('/home')
 

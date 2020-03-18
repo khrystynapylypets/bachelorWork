@@ -63,6 +63,7 @@ export const loginUser = async (req, res) => {
             dateWork: user.dateWork,
             academicStatus: user.academicStatus,
             dateBirth: user.dateBirth,
+            isAdmin: user.isAdmin,
           },
           message: 'The user is successfully authorized.',
         })

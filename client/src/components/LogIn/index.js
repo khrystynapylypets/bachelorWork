@@ -20,6 +20,12 @@ export const LogIn = ({ handleSubmit, invalid, submitting, onSubmit }) => (
       <Container>
         <h3 className='title'>Авторизуватись</h3>
         <Row>
+          <Col md={{ offset: 4 }} className='register-block'>
+            Ще не маєте акаунт?
+            <Link to='/register'> Зареєструватись</Link>
+          </Col>
+        </Row>
+        <Row>
           <Col md={12}>
             <Form.Group>
               <Form.Label className='form-label'>Електронна пошта<sup>*</sup></Form.Label>
