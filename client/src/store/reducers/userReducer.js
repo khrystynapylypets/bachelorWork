@@ -1,6 +1,9 @@
 import {
   REGISTER_FAIL,
   REGISTER_SUCCESS,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  LOGOUT_SUCCESS,
 } from '../actions/constants'
 
 const initState = {
@@ -12,12 +15,30 @@ export const userReducer = (prevState = initState, action) => {
     case REGISTER_SUCCESS:
       return {
           ...prevState,
+        isAdmin: false,
         error: '',
       }
     case REGISTER_FAIL:
       return {
           ...prevState,
         error: action.error,
+      }
+    case LOGIN_SUCCESS:
+      return {
+        ...prevState,
+        isAdmin: action.data.isAdmin,
+        error: '',
+      }
+    case LOGIN_FAIL:
+      return {
+        ...prevState,
+        error: action.error,
+      }
+    case LOGOUT_SUCCESS:
+      return {
+          ...prevState,
+        isAdmin: false,
+        error: ''
       }
     default:
       return prevState

@@ -1,0 +1,10 @@
+.error-message {
+  &.alert {
+    position: relative;
+    top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    height: auto;
+    z-index: 3;
+  }
+}
