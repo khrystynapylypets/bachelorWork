@@ -1,6 +1,10 @@
 import mongoose from 'mongoose'
 
 const UserSchema = new mongoose.Schema({
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
   email: {
     type: String,
     required: true,

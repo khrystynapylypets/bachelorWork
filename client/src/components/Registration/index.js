@@ -4,23 +4,23 @@ import { Input } from '../CommonFields/Input'
 import { Password } from '../CommonFields/Password'
 import { PublicLayout } from '../PublicLayout'
 import {
-    Container,
-    Row,
-    Col,
-    Button,
-    Form,
-    Spinner,
+  Container,
+  Row,
+  Col,
+  Button,
+  Form,
+  Spinner,
 } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './style.scss'
 
-export const Registration = ({handleSubmit, onSubmit, invalid, submitting}) => (
+export const Registration = ({ handleSubmit, onSubmit, invalid, submitting }) => (
     <PublicLayout>
         <form onSubmit={handleSubmit(onSubmit)} className='registration-form form'>
             <Container>
                 <h3 className='title'>Зареєструватись</h3>
                 <Row>
-                    <Col md={{offset: 4}} className='login-block'>
+                    <Col md={{ offset: 4 }} className='login-block'>
                         Вже маєте акаунт?
                         <Link to='/login'> Авторизуватись</Link>
                     </Col>

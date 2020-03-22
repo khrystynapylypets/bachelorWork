@@ -22,7 +22,6 @@ class RegistrationContainer extends Component {
 
   render() {
     const { handleSubmit, submitting, invalid, errorMessage } = this.props
-    console.log(errorMessage)
 
     return (
       <>
