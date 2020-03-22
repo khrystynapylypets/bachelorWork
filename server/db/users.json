@@ -1,0 +1,13 @@
+{
+  "admin": {
+    "email": "khrystyna.pylypets@gmail.com",
+    "password": "Admin123@",
+    "firstName": "Христина",
+    "secondName": "Іванівна",
+    "lastName": "Пилипець",
+    "dateWork": "1995-11-17",
+    "academicStatus": "доктор",
+    "dateBirth": "1970-1-9",
+    "isAdmin": true
+  }
+}
