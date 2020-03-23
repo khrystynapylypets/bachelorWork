@@ -1,0 +1,19 @@
+$right: right;
+$left: left;
+
+.right{
+    text-align: $right;
+}
+
+.left {
+    text-align: $left;
+}
+
+input{
+    color: #495057;
+}
+
+#modal-header{
+    border-bottom: none;
+    text-align: center;
+}
