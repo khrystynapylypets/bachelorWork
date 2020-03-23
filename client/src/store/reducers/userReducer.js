@@ -16,6 +16,7 @@ export const userReducer = (prevState = initState, action) => {
       return {
           ...prevState,
         isAdmin: false,
+        id: action.data.id,
         error: '',
       }
     case REGISTER_FAIL:
@@ -26,6 +27,7 @@ export const userReducer = (prevState = initState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...prevState,
+        id: action.data.id,
         isAdmin: action.data.isAdmin,
         error: '',
       }
@@ -36,9 +38,7 @@ export const userReducer = (prevState = initState, action) => {
       }
     case LOGOUT_SUCCESS:
       return {
-          ...prevState,
-        isAdmin: false,
-        error: ''
+          ...initState
       }
     default:
       return prevState

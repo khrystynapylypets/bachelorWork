@@ -50,8 +50,6 @@ export const Registration = ({ handleSubmit, onSubmit, invalid, submitting }) =>
                             />
                         </Form.Group>
                     </Col>
-                </Row>
-                <Row>
                     <Col md={12}>
                         <Form.Group controlId='lastName'>
                             <Form.Label>Прізвище<sup>*</sup></Form.Label>
@@ -76,8 +74,6 @@ export const Registration = ({ handleSubmit, onSubmit, invalid, submitting }) =>
                             />
                         </Form.Group>
                     </Col>
-                </Row>
-                <Row>
                     <Col md={12}>
                         <Form.Group controlId='password'>
                             <Form.Label>Пароль<sup>*</sup></Form.Label>
@@ -102,8 +98,6 @@ export const Registration = ({ handleSubmit, onSubmit, invalid, submitting }) =>
                             />
                         </Form.Group>
                     </Col>
-                </Row>
-                <Row>
                     <Col md={12}>
                         <Form.Group controlId='academicStatus'>
                             <Form.Label>Вчене звання<sup>*</sup></Form.Label>
@@ -128,6 +122,18 @@ export const Registration = ({ handleSubmit, onSubmit, invalid, submitting }) =>
                             />
                         </Form.Group>
                     </Col>
+                  <Col md={12}>
+                    <Form.Group controlId='phoneNumber'>
+                      <Form.Label>Номер телефону</Form.Label>
+                      <Field
+                          name='phoneNumber'
+                          component={Input}
+                          type='tel'
+                          placeholder='Введіть номер телефону'
+                          id='phoneNumber'
+                      />
+                    </Form.Group>
+                  </Col>
                 </Row>
                 <Row>
                     <Col md={12}>

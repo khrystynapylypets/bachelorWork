@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+
+.profile-details {
+  .details {
+    width: 250px;
+    background: $main-color;
+    height: 100vh;
+  }
+
+  .general {
+    padding: 10px 10px 10px 20px;
+  }
+
+  .card {
+    background: $white;
+    border-radius: 0;
+    border: 0;
+  }
+}
