@@ -12,11 +12,14 @@ export class ProfilePage extends Component {
 
 
   render() {
+
+    const {user} = this.props
+
     return (
         <PrivateLayout>
           <Row>
             <Col md={8}>
-              <ProfileDetails />
+              <ProfileDetails userData={user} />
             </Col>
             <Col md={4} className='events-column'>
               <EventsCalendar />

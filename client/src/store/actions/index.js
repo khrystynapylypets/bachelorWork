@@ -10,6 +10,10 @@ import {
   RESET_PASSWORD,
   RESET_PASSWORD_FAIL,
   RESET_PASSWORD_SUCCESS,
+  GET_USER_DATA_LOADING,
+  GET_USER_DATA_FAIL,
+  GET_USER_DATA_SUCCESS,
+  GET_USER_DATA,
 } from './constants'
 
 export const registerUser = (user) => ({
@@ -61,6 +65,25 @@ export const resetPasswordSuccess = (data) => ({
 
 export const resetPasswordFail = (error) => ({
   type: RESET_PASSWORD_FAIL,
+  error,
+})
+
+export const getUserData = (userId) => ({
+  type: GET_USER_DATA,
+  userId,
+})
+
+export const getUserDataLoading = () => ({
+  type: GET_USER_DATA_LOADING,
+})
+
+export const getUserDataSuccess = (userData) => ({
+  type: GET_USER_DATA_SUCCESS,
+  userData,
+})
+
+export const getUserDataFail = (error) => ({
+  type: GET_USER_DATA_FAIL,
   error,
 })
 

@@ -4,10 +4,16 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
+  GET_USER_DATA_LOADING,
+  GET_USER_DATA_FAIL,
+  GET_USER_DATA_SUCCESS,
 } from '../actions/constants'
+
+import _ from 'lodash'
 
 const initState = {
   error: '',
+  loading: true,
 }
 
 export const userReducer = (prevState = initState, action) => {
@@ -39,6 +45,24 @@ export const userReducer = (prevState = initState, action) => {
     case LOGOUT_SUCCESS:
       return {
           ...initState
+      }
+    case GET_USER_DATA_LOADING:
+      return {
+          ...prevState,
+        loading: true,
+        error: '',
+      }
+    case GET_USER_DATA_SUCCESS:
+      return {
+          ...prevState,
+        userData: _.cloneDeep(action.userData),
+        loading: false,
+      }
+    case GET_USER_DATA_FAIL:
+      return {
+          ...prevState,
+        loading: false,
+        error: action.error,
       }
     default:
       return prevState
