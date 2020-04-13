@@ -1,29 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
     Modal,
     Container,
     Row,
     Col,
-    Button,
-    Form,
-    Spinner,
-    DropdownButton,
-    Dropdown,
-    InputGroup,
-    FormControl
+    Form
 } from 'react-bootstrap'
 
 
 
-export const ScheduleForm = ({ handleReset, handleSubmit, show, handleChangeDegree, handleChangeForm, handleChangeCoef, handleShow, handleClose }) => (
+export const ScheduleForm = ({ handleSubmit, show, handleChangeDegree, handleChangeForm, handleChangeCoef, handleShow, handleClose }) => (
     <div >
         {/* кнопка до кабінету завідувача */}
-        <button class="btn btn-primary" onClick={handleShow}>
+        <button className="btn btn-primary" onClick={handleShow}>
             Створити графік
         </button>
 
         <Modal centered show={show} onHide={handleClose}>
-            <Form action="/create-schedule">
+            <Form onSubmit={handleSubmit}>
                 <Container>
                     <Modal.Header closeButton id='modal-header'>
                         <Modal.Title>Введіть необхідні дані</Modal.Title>
@@ -45,7 +39,7 @@ export const ScheduleForm = ({ handleReset, handleSubmit, show, handleChangeDegr
                         <Col md={12}>
                             <Form.Group controlId='form'>
                                 <Form.Label>Форма навчання:</Form.Label>
-                                <Form.Control as="select" class='form-control' onChange={handleChangeForm}>
+                                <Form.Control as="select" className='form-control' onChange={handleChangeForm}>
                                     <option>Денна</option>
                                     <option>Заочна</option>
                                 </Form.Control>
@@ -56,14 +50,14 @@ export const ScheduleForm = ({ handleReset, handleSubmit, show, handleChangeDegr
                         <Col md={12}>
                             <Form.Group controlId='coef'>
                                 <Form.Label className='right'>Сума коефіцієнтів:</Form.Label>
-                                <input type="number" id="quantity" placeholder='Вкажіть число' name="quantity" min="1" value="30" class='form-control' onChange={handleChangeCoef}/>
+                                <input type="number" id="quantity" placeholder='Вкажіть число' defaultValue="30" name="quantity" required min="1" className='form-control' onChange={handleChangeCoef}/>
                             </Form.Group>
                         </Col>
                     </Row>
                     <Row>
                         <Col md={12}>
                             <Form.Group controlId='button'>
-                                <button type="submit" class="btn btn-primary btn-block" disabled="" onClick={handleClose}>
+                                <button type="submit" className="btn btn-primary btn-block" disabled="" onClick={handleClose}>
                                     Підтвердити
                                         </button>
                             </Form.Group>

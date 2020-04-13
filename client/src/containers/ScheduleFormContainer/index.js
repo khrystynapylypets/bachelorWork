@@ -1,20 +1,9 @@
 import React, { Component } from 'react'
-import {
-    Modal,
-    Container,
-    Row,
-    Col,
-    Button,
-    Form,
-    Spinner,
-    DropdownButton,
-    Dropdown,
-    InputGroup,
-    FormControl
-} from 'react-bootstrap'
 import './style.scss'
 import {ScheduleForm} from '../../components/ScheduleForm/index'
-
+import CreateSchedule from '../../components/CreateSchedule/index'
+import { getAllSubjects } from '../../store/actions'
+import { connect } from 'react-redux'
 
 class ScheduleFormContainer extends Component {
 
@@ -22,9 +11,10 @@ class ScheduleFormContainer extends Component {
         super(props);
         this.state = {
             show: false,
-            degree: '',
-            form: '',
-            coefficients: 0
+            isSubmitted: false,
+            degree: 'Бакалавр',
+            form: 'Денна',
+            coefficients: 30
         };
     }
 
@@ -40,29 +30,53 @@ class ScheduleFormContainer extends Component {
         this.setState({ coefficients: event.target.value });
     }
 
+    getCoefficients = () => {
+        return(this.state.coefficients)
+    }
+
     handleSubmit = (event) => {
-        
-        alert('Degree: ' + this.state.degree + '\nForm: ' + this.state.form + '\nCoefficients: ' + this.state.coefficients);
+        this.setState({ isSubmitted: true });
+        // alert('Degree: ' + this.state.degree + '\nForm: ' + this.state.form + '\nCoefficients: ' + this.state.coefficients);
         event.preventDefault();
     }
 
+    handleOnClickSelect = () => {
+        const { getAllSubjects } = this.props
+        console.log(this.props)
+        getAllSubjects()
+    }
+
     handleClose = () => this.setState({ show: false });
-    handleShow = () => {this.setState({ show: true }); };
+    handleShow = () => {this.setState({ show: true , isSubmitted: false}); };
     
     render() {
         console.log(this.state.show)
         return (
-            <ScheduleForm
-                handleSubmit={this.handleSubmit}
-                handleChangeDegree={this.handleChangeDegree}
-                handleChangeForm={this.handleChangeForm}
-                handleChangeCoef={this.handleChangeCoef}
-                handleShow={this.handleShow}
-                handleClose={this.handleClose}
-                show={this.state.show}
-            />
+            <>
+                <ScheduleForm
+                    handleSubmit={this.handleSubmit}
+                    handleChangeDegree={this.handleChangeDegree}
+                    handleChangeForm={this.handleChangeForm}
+                    handleChangeCoef={this.handleChangeCoef}
+                    handleShow={this.handleShow}
+                    handleClose={this.handleClose}
+                    show={this.state.show}
+                />
+                {this.state.isSubmitted ? <CreateSchedule degree={this.state.degree} form={this.state.form} coefficients={this.state.coefficients} /> : null}
+            </>
         )
     }
 }
 
-export default ScheduleFormContainer
+const mapDispatchToProps = {
+    getAllSubjects,
+}
+
+const mapStateToProps = ({ subjects }) => ({
+    subjects: subjects.subjects,
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(ScheduleFormContainer)

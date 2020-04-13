@@ -11,7 +11,7 @@ class LogInContainer extends Component {
 
   handleOnSubmit = (user) => {
     const { loginUser, reset } = this.props
-
+    console.log(this.props)
     loginUser(user)
     reset()
   }

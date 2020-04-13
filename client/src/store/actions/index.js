@@ -10,6 +10,9 @@ import {
   RESET_PASSWORD,
   RESET_PASSWORD_FAIL,
   RESET_PASSWORD_SUCCESS,
+  GET_ALL_SUBJECTS,
+  GET_ALL_SUBJECTS_FAIL,
+  GET_ALL_SUBJECTS_SUCCESS
 } from './constants'
 
 export const registerUser = (user) => ({
@@ -64,3 +67,16 @@ export const resetPasswordFail = (error) => ({
   error,
 })
 
+export const getAllSubjects = () => ({
+  type: GET_ALL_SUBJECTS,
+})
+
+export const getAllSubjectsSuccess = (data) => ({
+  type: GET_ALL_SUBJECTS_SUCCESS,
+  data
+})
+
+export const getAllSubjectsFail = (error) => ({
+  type: GET_ALL_SUBJECTS_FAIL,
+  error
+})
