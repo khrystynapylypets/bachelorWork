@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './style.scss'
-import { GeneralSubjectsCell, ProfessionSubjectsCell, SelectiveSubjectsCell, Coefficients} from '../../components/TableCells/index'
-import  TableCellContainer from '../../containers/TableCellContainer'
+import {Coefficients} from '../../components/TableCells/index'
+import  GeneralSubjectsCellContainer from '../../containers/GeneralSubjectsCellContainer'
+import  SpecialitySubjectsCellContainer from '../../containers/SpecialitySubjectsCellContainer'
+import  SelectiveSubjectsCellContainer from '../../containers/SelectiveSubjectsCellContainer'
 import {
     Container,
 } from 'react-bootstrap'
@@ -50,34 +52,34 @@ class CreateSchedule extends Component {
                                 </tr>
                                 <tr className='first-area'>
                                     {/* <GeneralSubjectsCell getAllSubjects={this.props.getAllSubjects} subjects={this.props.subjects} onSelectClick={this.props.onSelectClick} ChooseDiscipline={this.ChooseDiscipline} isChosen={this.state.isChosen}/> */}
-                                    <TableCellContainer />
-                                    <GeneralSubjectsCell />
-                                    <GeneralSubjectsCell />
-                                    <GeneralSubjectsCell />
-                                    <GeneralSubjectsCell />
-                                    <GeneralSubjectsCell />
-                                    <GeneralSubjectsCell />
-                                    <GeneralSubjectsCell />
+                                    <GeneralSubjectsCellContainer />
+                                    <GeneralSubjectsCellContainer />
+                                    <GeneralSubjectsCellContainer />
+                                    <GeneralSubjectsCellContainer />
+                                    <GeneralSubjectsCellContainer />
+                                    <GeneralSubjectsCellContainer />
+                                    <GeneralSubjectsCellContainer />
+                                    <GeneralSubjectsCellContainer />
                                 </tr>
                                 <tr className='second-area'>
-                                    <ProfessionSubjectsCell />
-                                    <ProfessionSubjectsCell />
-                                    <ProfessionSubjectsCell />
-                                    <ProfessionSubjectsCell />
-                                    <ProfessionSubjectsCell />
-                                    <ProfessionSubjectsCell />
-                                    <ProfessionSubjectsCell />
-                                    <ProfessionSubjectsCell />
+                                    <SpecialitySubjectsCellContainer />
+                                    <SpecialitySubjectsCellContainer />
+                                    <SpecialitySubjectsCellContainer />
+                                    <SpecialitySubjectsCellContainer />
+                                    <SpecialitySubjectsCellContainer />
+                                    <SpecialitySubjectsCellContainer />
+                                    <SpecialitySubjectsCellContainer />
+                                    <SpecialitySubjectsCellContainer />
                                 </tr>
                                 <tr className='third-area'>
-                                    <SelectiveSubjectsCell />
-                                    <SelectiveSubjectsCell />
-                                    <SelectiveSubjectsCell />
-                                    <SelectiveSubjectsCell />
-                                    <SelectiveSubjectsCell />
-                                    <SelectiveSubjectsCell />
-                                    <SelectiveSubjectsCell />
-                                    <SelectiveSubjectsCell />
+                                    <SelectiveSubjectsCellContainer />
+                                    <SelectiveSubjectsCellContainer />
+                                    <SelectiveSubjectsCellContainer />
+                                    <SelectiveSubjectsCellContainer />
+                                    <SelectiveSubjectsCellContainer />
+                                    <SelectiveSubjectsCellContainer />
+                                    <SelectiveSubjectsCellContainer />
+                                    <SelectiveSubjectsCellContainer />
                                 </tr>
                                 <tr className='fourth-area'>
                                     <Coefficients coefficients={this.props.coefficients}/>
@@ -102,19 +104,19 @@ class CreateSchedule extends Component {
                                     <td>III семестр</td>
                                 </tr>
                                 <tr className='first-area'>
-                                    <GeneralSubjectsCell />
-                                    <GeneralSubjectsCell />
-                                    <GeneralSubjectsCell />
+                                    <GeneralSubjectsCellContainer />
+                                    <GeneralSubjectsCellContainer />
+                                    <GeneralSubjectsCellContainer />
                                 </tr>
                                 <tr className='second-area'>
-                                    <ProfessionSubjectsCell />
-                                    <ProfessionSubjectsCell />
-                                    <ProfessionSubjectsCell />
+                                    <SpecialitySubjectsCellContainer />
+                                    <SpecialitySubjectsCellContainer />
+                                    <SpecialitySubjectsCellContainer />
                                 </tr>
                                 <tr className='third-area'>
-                                    <SelectiveSubjectsCell />
-                                    <SelectiveSubjectsCell />
-                                    <SelectiveSubjectsCell />
+                                    <SelectiveSubjectsCellContainer />
+                                    <SelectiveSubjectsCellContainer />
+                                    <SelectiveSubjectsCellContainer />
                                 </tr>
                                 <tr className='fourth-area'>
                                     <Coefficients coefficients={this.props.coefficients}/>

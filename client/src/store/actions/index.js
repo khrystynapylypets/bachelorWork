@@ -12,7 +12,16 @@ import {
   RESET_PASSWORD_SUCCESS,
   GET_ALL_SUBJECTS,
   GET_ALL_SUBJECTS_FAIL,
-  GET_ALL_SUBJECTS_SUCCESS
+  GET_ALL_SUBJECTS_SUCCESS,
+  GET_GENERAL_SUBJECTS,
+  GET_GENERAL_SUBJECTS_FAIL,
+  GET_GENERAL_SUBJECTS_SUCCESS,
+  GET_SPECIALITY_SUBJECTS,
+  GET_SPECIALITY_SUBJECTS_FAIL,
+  GET_SPECIALITY_SUBJECTS_SUCCESS,
+  GET_SELECTIVE_SUBJECTS,
+  GET_SELECTIVE_SUBJECTS_FAIL,
+  GET_SELECTIVE_SUBJECTS_SUCCESS
 } from './constants'
 
 export const registerUser = (user) => ({
@@ -67,6 +76,7 @@ export const resetPasswordFail = (error) => ({
   error,
 })
 
+//ALL
 export const getAllSubjects = () => ({
   type: GET_ALL_SUBJECTS,
 })
@@ -78,5 +88,50 @@ export const getAllSubjectsSuccess = (data) => ({
 
 export const getAllSubjectsFail = (error) => ({
   type: GET_ALL_SUBJECTS_FAIL,
+  error
+})
+
+//GENERAL
+export const getGeneralSubjects = () => ({
+  type: GET_GENERAL_SUBJECTS,
+})
+
+export const getGeneralSubjectsSuccess = (data) => ({
+  type: GET_GENERAL_SUBJECTS_SUCCESS,
+  data
+})
+
+export const getGeneralSubjectsFail = (error) => ({
+  type: GET_GENERAL_SUBJECTS_FAIL,
+  error
+})
+
+//SPECIALITY
+export const getSpecialitySubjects = () => ({
+  type: GET_SPECIALITY_SUBJECTS,
+})
+
+export const getSpecialitySubjectsSuccess = (data) => ({
+  type: GET_SPECIALITY_SUBJECTS_SUCCESS,
+  data
+})
+
+export const getSpecialitySubjectsFail = (error) => ({
+  type: GET_SPECIALITY_SUBJECTS_FAIL,
+  error
+})
+
+//SELECTIVE
+export const getSelectiveSubjects = () => ({
+  type: GET_SELECTIVE_SUBJECTS,
+})
+
+export const getSelectiveSubjectsSuccess = (data) => ({
+  type: GET_SELECTIVE_SUBJECTS_SUCCESS,
+  data
+})
+
+export const getSelectiveSubjectsFail = (error) => ({
+  type: GET_SELECTIVE_SUBJECTS_FAIL,
   error
 })

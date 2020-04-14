@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import './style.scss'
 import {ScheduleForm} from '../../components/ScheduleForm/index'
 import CreateSchedule from '../../components/CreateSchedule/index'
-import { getAllSubjects } from '../../store/actions'
-import { connect } from 'react-redux'
 
 class ScheduleFormContainer extends Component {
 
@@ -68,15 +66,5 @@ class ScheduleFormContainer extends Component {
     }
 }
 
-const mapDispatchToProps = {
-    getAllSubjects,
-}
 
-const mapStateToProps = ({ subjects }) => ({
-    subjects: subjects.subjects,
-})
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(ScheduleFormContainer)
+export default ScheduleFormContainer
