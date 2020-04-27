@@ -2,4 +2,26 @@
 
 body {
   background: $body-back;
+  color: $mine-shaft;
+
+  #popover-email,
+  #popover-phone {
+    &.bs-popover-bottom {
+      border: 0;
+      border-radius: 0;
+
+      h3 {
+        padding-bottom: 0;
+        font-size: 12px;
+        color: $mine-shaft;
+        background: none;
+        border: 0;
+      }
+
+      div {
+        font-size: 12px;
+        color: $mine-shaft;
+      }
+    }
+  }
 }

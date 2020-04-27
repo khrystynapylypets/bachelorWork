@@ -1,4 +1,4 @@
-import { createUserModel, findUser, findAllUsers, findUserById } from '../services/userService'
+import { createUserModel, findUser, findAllUsers, findUserById, findUserByEmail } from '../services/userService'
 import { encodeJWTToken } from '../services/tokenService'
 import { checkRequiredFields } from '../helpers/additionalFunctions'
 import envConfig from '../configs/env.config'
@@ -24,7 +24,7 @@ export const createUser = async (req, res) => {
       .send({
         user: {
           id: newUser._id,
-          email: newUser.email,
+          isAdmin: newUser.isAdmin,
           firstName: newUser.firstName,
           secondName: newUser.secondName,
           lastName: newUser.lastName,

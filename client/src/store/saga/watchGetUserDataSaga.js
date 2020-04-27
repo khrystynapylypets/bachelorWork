@@ -1,10 +1,11 @@
 import { takeEvery, call, put } from 'redux-saga/effects'
 import { GET_USER_DATA } from '../actions/constants'
-import { getUserDataSuccess, getUserDataFail } from '../actions'
+import { getUserDataSuccess, getUserDataFail, getUserDataLoading } from '../actions'
 import { AuthAPI } from '../api'
 
 function* workGetUserData({ userId }) {
   try {
+    yield put(getUserDataLoading())
     let response = yield call(getUser, userId)
     yield put(getUserDataSuccess(response.data.user))
 
@@ -19,5 +20,5 @@ export function* watchGetUserData() {
 }
 
 const getUser = (userId) => {
-  return AuthAPI.get(`/users/${userId}hg`)
+  return AuthAPI.get(`/users/${userId}`)
 }

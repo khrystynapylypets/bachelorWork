@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { PrivateLayout } from '../PrivateLayout'
-import { ProfileDetails } from '../ProfileDetails'
+import ProfileDetailsContainer from '../../containers/ProfileDetailsContainer'
 import { EventsCalendar } from '../EventsCalendar'
 import {
   Row,
@@ -13,13 +13,13 @@ export class ProfilePage extends Component {
 
   render() {
 
-    const {user} = this.props
+    const { userId } = this.props;
 
     return (
         <PrivateLayout>
           <Row>
             <Col md={8}>
-              <ProfileDetails userData={user} />
+              <ProfileDetailsContainer userId={userId} />
             </Col>
             <Col md={4} className='events-column'>
               <EventsCalendar />

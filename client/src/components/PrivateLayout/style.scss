@@ -17,6 +17,15 @@
     padding: 10px 30px;
     justify-content: space-between;
     background: $white;
+
+    .navigation {
+      align-items: center;
+
+      a {
+        display: block;
+        margin-right: 15px;
+      }
+    }
   }
 
   .search-form {

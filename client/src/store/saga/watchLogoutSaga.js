@@ -1,11 +1,11 @@
 import { takeEvery, put } from 'redux-saga/effects'
 import { LOGOUT } from '../actions/constants'
 import { logoutSuccess } from '../actions';
-import { deleteToken } from '../../helpers/token'
+import { deleteInitData } from '../../helpers/storageFunctions'
 import history from '../../history'
 
 function* workLogoutUser() {
-  deleteToken()
+  deleteInitData()
   yield put(logoutSuccess())
 
   history.push('/login')

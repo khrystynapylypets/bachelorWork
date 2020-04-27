@@ -10,6 +10,7 @@ import {
   Button,
   Form,
 } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import './style.scss'
 
 export const PrivateLayout = ({ children }) => (
@@ -21,8 +22,9 @@ export const PrivateLayout = ({ children }) => (
               <FormControl type='text' placeholder='Search' className='search'/>
               <Button variant='outline-primary'>Пошук</Button>
             </Form>
-            <Nav>
-              <Nav.Link href="#home">Home</Nav.Link>
+            <Nav className='navigation'>
+              <Link to='/home'>Home</Link>
+                <Link to='/profile'>Мій профіль</Link>
               <LogOut />
             </Nav>
           </Navbar>

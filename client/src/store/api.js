@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getToken } from '../helpers/token'
+import { getToken } from '../helpers/storageFunctions'
 import history from '../history'
 
 export const API = axios.create({
