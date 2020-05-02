@@ -1,5 +1,6 @@
-import { createUserModel, findUser } from '../services/userService'
+import { createUserModel, findUser, findAllUsers, findUserById, findUserByEmail } from '../services/userService'
 import { encodeJWTToken } from '../services/tokenService'
+import { checkRequiredFields } from '../helpers/additionalFunctions'
 import envConfig from '../configs/env.config'
 
 export const createUser = async (req, res) => {
@@ -23,13 +24,14 @@ export const createUser = async (req, res) => {
       .send({
         user: {
           id: newUser._id,
-          email: newUser.email,
+          isAdmin: newUser.isAdmin,
           firstName: newUser.firstName,
           secondName: newUser.secondName,
           lastName: newUser.lastName,
           dateWork: newUser.dateWork,
           academicStatus: newUser.academicStatus,
           dateBirth: newUser.dateBirth,
+          phoneNumber: user.phoneNumber,
         },
         message: 'The user is successfully registered.',
       })
@@ -64,6 +66,7 @@ export const loginUser = async (req, res) => {
             academicStatus: user.academicStatus,
             dateBirth: user.dateBirth,
             isAdmin: user.isAdmin,
+            phoneNumber: user.phoneNumber,
           },
           message: 'The user is successfully authorized.',
         })
@@ -73,6 +76,62 @@ export const loginUser = async (req, res) => {
   }
 }
 
-const checkRequiredFields = (arrayOfFields) => {
-  return arrayOfFields.every((item) => !(item === undefined))
+export const getAllUsers = async (req, res) => {
+  try {
+    let users = await findAllUsers()
+
+    let result = users.map((user) => ({
+      id: user._id,
+      email: user.email,
+      firstName: user.firstName,
+      secondName: user.secondName,
+      lastName: user.lastName,
+      dateWork: user.dateWork,
+      academicStatus: user.academicStatus,
+      dateBirth: user.dateBirth,
+      isAdmin: user.isAdmin,
+      phoneNumber: user.phoneNumber,
+    }))
+
+    return res
+        .status(200)
+        .send({
+          users: result,
+          message: 'You successfully get all users!',
+        })
+  }
+  catch(error) {
+    return res.status(400).send({ message: error.message })
+  }
 }
+
+export const getUser = async (req, res) => {
+  try {
+    let id = req.params.id
+
+    let user = await findUserById(id)
+    return res
+        .status(200)
+        .send({
+          user: {
+            id: user._id,
+            email: user.email,
+            firstName: user.firstName,
+            secondName: user.secondName,
+            lastName: user.lastName,
+            dateWork: user.dateWork,
+            academicStatus: user.academicStatus,
+            dateBirth: user.dateBirth,
+            isAdmin: user.isAdmin,
+            phoneNumber: user.phoneNumber,
+          },
+          message: 'You successfully get user!',
+        })
+
+  }
+  catch(error) {
+    return res.status(400).send({ message: error.message })
+  }
+}
+
+

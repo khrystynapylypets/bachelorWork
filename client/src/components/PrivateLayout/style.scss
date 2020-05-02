@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+.private-layout {
+  .header {
+    padding: 0;
+    position: fixed;
+    z-index: 2;
+    box-shadow: 0 10px 10px -7px $grey;
+  }
+
+  .main {
+    padding-top: 60px;
+  }
+
+  .navbar {
+    width: 100%;
+    padding: 10px 30px;
+    justify-content: space-between;
+    background: $white;
+
+    .navigation {
+      align-items: center;
+
+      a {
+        display: block;
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .search-form {
+    width: 60%;
+    flex-wrap: nowrap;
+
+    .search {
+      width: 100%;
+      max-width: 500px;
+      margin-right: 10px;
+    }
+  }
+}

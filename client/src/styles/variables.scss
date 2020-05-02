@@ -1,7 +1,11 @@
 
-$blue: #007bff;
+$main-color: linear-gradient(rgb(0, 93, 186), rgb(11, 119, 227));
 $white: #ffffff;
 $red: #ff0000;
+$body-back: #e9ecef;
+$grey: #dcdcdc;
+$black: #000000;
+$mine-shaft: #333333;
 
 $mobile: 767px;
 $tablet-max: 992px;
@@ -10,3 +14,4 @@ $tablet-min: $mobile + 1;
 $black-russ: rgba(2, 0, 36, 1);
 $arapawa: rgba(9, 9, 121, 1);
 $aqua: rgba(0, 212, 255, 1);
+$black-15: rgba(0, 0, 0, 0.15);

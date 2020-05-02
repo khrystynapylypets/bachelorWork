@@ -64,7 +64,7 @@ export const LogIn = ({ handleSubmit, invalid, submitting, onSubmit }) => (
           </Col>
           <Col md={12}>
             <p className='forgot-password'>
-              Forgot <Link to='/forgot-password'>password?</Link>
+              Забули <Link to='/forgot-password'>пароль?</Link>
             </p>
           </Col>
         </Row>
