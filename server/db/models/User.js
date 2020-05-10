@@ -1,9 +1,8 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
   isAdmin: {
     type: Boolean,
-    default: false,
   },
   email: {
     type: String,
@@ -38,11 +37,14 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  phoneNumber: {
+    type: String,
+  },
   created: {
     type: Date,
     default: Date.now,
   },
-})
+});
 
 
-export default mongoose.model('User', UserSchema)
+export default mongoose.model('User', UserSchema);

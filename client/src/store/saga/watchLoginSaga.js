@@ -1,31 +1,30 @@
-import { takeEvery, call, put } from 'redux-saga/effects'
-import { LOGIN } from '../actions/constants'
-import { loginSuccess, loginFail } from '../actions'
-import { API } from '../api'
-import { setToken } from '../../helpers/token'
+import { takeEvery, call, put } from 'redux-saga/effects';
+import { userActions } from '../actions/userActions';
+import { API } from '../api';
+import { setInitData } from '../../helpers/storageFunctions';
 import history from '../../history';
 
 function* workLoginUser({ user }) {
   try {
-    let response = yield call(loginUser, user)
-    setToken(response.headers[ 'access-token' ])
-    yield put(loginSuccess({
-      id: response.data.user.id,
-      isAdmin: response.data.user.isAdmin,
-    }))
+    let { headers, data } = yield call(loginUser, user);
 
-    history.push('/home')
+    setInitData(headers['access-token'], data.user);
 
+    yield put(userActions.loginSuccess());
+    yield put(userActions.initUser(data.user));
+
+    history.push('/home');
   } catch (e) {
-    let errorMessage = e.response ? e.response.data.message : e.message
-    yield put(loginFail(errorMessage))
+    let errorMessage = e.response ? e.response.data.message : e.message;
+
+    yield put(userActions.loginFail(errorMessage));
   }
 }
 
 export function* watchLoginUser() {
-  yield takeEvery(LOGIN, workLoginUser)
+  yield takeEvery(userActions.types.LOGIN, workLoginUser);
 }
 
 const loginUser = (userData) => {
-  return API.post('/users/login', userData)
-}
+  return API.post('/users/login', userData);
+};

@@ -1,14 +1,14 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import { getToken } from '../helpers/token'
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { getToken } from '../helpers/storageFunctions';
 
 export const PublicRoute = ({ component: Component, ...rest }) => {
-  console.log(getToken())
+  console.log(getToken());
   const routeComponent = (props) => (
     getToken()
-      ? <Redirect to='/home'/>
-      : <Component {...props}/>
-  )
+      ? <Redirect to='/home' />
+      : <Component {...props} />
+  );
 
-  return <Route {...rest} render={routeComponent}/>
-}
+  return <Route {...rest} render={routeComponent} />;
+};

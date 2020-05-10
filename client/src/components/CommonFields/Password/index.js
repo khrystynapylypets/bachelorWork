@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { Form, InputGroup } from 'react-bootstrap'
-import { FaEye, FaEyeSlash } from 'react-icons/fa'
+import React, { Component } from 'react';
+import { Form, InputGroup } from 'react-bootstrap';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export class Password extends Component {
   state = {
@@ -14,8 +14,8 @@ export class Password extends Component {
   )
 
   render() {
-    const { input, type, placeholder, meta: { touched, error } } = this.props
-    const { showPassword } = this.state
+    const { input, type, placeholder, meta: { touched, error } } = this.props;
+    const { showPassword } = this.state;
 
     return (
       <InputGroup>
@@ -34,6 +34,6 @@ export class Password extends Component {
         {touched
         && ((error && <span className='error-field'>{error}</span>))}
       </InputGroup>
-    )
+    );
   }
 }

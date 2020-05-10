@@ -1,9 +1,9 @@
-import React from 'react'
-import { Field } from 'redux-form'
-import { Input } from '../CommonFields/Input'
-import { Password } from '../CommonFields/Password'
-import { PublicLayout } from '../PublicLayout'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Field } from 'redux-form';
+import { Input } from '../CommonFields/Input';
+import { Password } from '../CommonFields/Password';
+import { PublicLayout } from '../PublicLayout';
+import { Link } from 'react-router-dom';
 import {
   Container,
   Row,
@@ -11,8 +11,8 @@ import {
   Button,
   Form,
   Spinner,
-} from 'react-bootstrap'
-import './style.scss'
+} from 'react-bootstrap';
+import './style.scss';
 
 export const LogIn = ({ handleSubmit, invalid, submitting, onSubmit }) => (
   <PublicLayout>
@@ -59,18 +59,18 @@ export const LogIn = ({ handleSubmit, invalid, submitting, onSubmit }) => (
               disabled={invalid || submitting}
               type='submit'
             >
-              {submitting ? <Spinner animation='border' variant='primary'/> : 'Відправити'}
+              {submitting ? <Spinner animation='border' variant='primary' /> : 'Відправити'}
             </Button>
           </Col>
           <Col md={12}>
             <p className='forgot-password'>
-              Forgot <Link to='/forgot-password'>password?</Link>
+              Забули <Link to='/forgot-password'>пароль?</Link>
             </p>
           </Col>
         </Row>
       </Container>
     </form>
   </PublicLayout>
-)
+);
 
 
