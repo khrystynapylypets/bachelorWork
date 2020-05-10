@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ProfileDetails } from '../../components/ProfileDetails';
-import { getUserData } from '../../store/actions';
+import { ProfileDetails } from '../../components/ProfilePage/ProfileDetails';
+import { getUserData } from '../../store/actions/userAction';
 import { formatDate } from '../../helpers/generalFunctions'
 
 const mapStateToProps = (state) => ({

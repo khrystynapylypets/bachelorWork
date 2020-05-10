@@ -3,7 +3,7 @@ import { ForgotPassword } from '../../components/ForgotPassword'
 import { reduxForm } from 'redux-form'
 import { validate } from '../../utils/validation'
 import { connect } from 'react-redux'
-import { resetPassword } from '../../store/actions'
+import { resetPassword } from '../../store/actions/userAction'
 
 
 class ForgotPasswordContainer extends Component {

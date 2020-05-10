@@ -15,8 +15,6 @@ import {
     GET_USER_DATA_SUCCESS,
     GET_USER_DATA,
     INIT,
-    INIT_FAIL,
-    INIT_SUCCESS,
 } from './constants'
 
 export const registerUser = (user) => ({

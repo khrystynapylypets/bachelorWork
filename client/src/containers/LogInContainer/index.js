@@ -3,7 +3,7 @@ import { LogIn } from '../../components/LogIn'
 import { reduxForm } from 'redux-form'
 import { validate } from '../../utils/validation'
 import { connect } from 'react-redux'
-import { loginUser } from '../../store/actions'
+import { loginUser } from '../../store/actions/userAction'
 import { ErrorAlert } from '../../components/ErrorAlert'
 
 

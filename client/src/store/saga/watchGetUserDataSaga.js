@@ -1,6 +1,6 @@
 import { takeEvery, call, put } from 'redux-saga/effects'
 import { GET_USER_DATA } from '../actions/constants'
-import { getUserDataSuccess, getUserDataFail, getUserDataLoading } from '../actions'
+import { getUserDataSuccess, getUserDataFail, getUserDataLoading } from '../actions/userAction'
 import { AuthAPI } from '../api'
 
 function* workGetUserData({ userId }) {

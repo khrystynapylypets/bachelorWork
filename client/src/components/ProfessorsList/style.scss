@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+.professors-list {
+  padding: 40px 0;
+
+  .card {
+    margin-bottom: 20px;
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    p {
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}

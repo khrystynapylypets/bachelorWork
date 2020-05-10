@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { logoutUser } from '../../store/actions'
+import { logoutUser } from '../../store/actions/userAction'
 import { Button } from 'react-bootstrap'
 import { IoIosLogOut } from 'react-icons/io'
 

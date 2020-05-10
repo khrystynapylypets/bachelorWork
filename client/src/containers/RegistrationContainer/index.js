@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Registration } from '../../components/Registration'
 import { reduxForm } from 'redux-form'
 import { validate } from '../../utils/validation'
-import { registerUser } from '../../store/actions'
+import { registerUser } from '../../store/actions/userAction'
 import { connect } from 'react-redux'
 import { ErrorAlert } from '../../components/ErrorAlert'
 

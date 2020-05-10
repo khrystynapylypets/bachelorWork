@@ -1,6 +1,6 @@
 import { takeEvery, put } from 'redux-saga/effects'
 import { LOGOUT } from '../actions/constants'
-import { logoutSuccess } from '../actions';
+import { logoutSuccess } from '../actions/userAction';
 import { deleteInitData } from '../../helpers/storageFunctions'
 import history from '../../history'
 

@@ -1,0 +1,11 @@
+@import '../../../styles/variables';
+
+.list-header {
+  .search-panel {
+    height: 50px;
+
+    input {
+      height: 50px;
+    }
+  }
+}

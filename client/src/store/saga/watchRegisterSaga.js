@@ -1,6 +1,6 @@
 import {takeEvery, call, put} from 'redux-saga/effects'
 import {REGISTER} from '../actions/constants'
-import {registerSuccess, registerFail, initUser} from '../actions'
+import {registerSuccess, registerFail, initUser} from '../actions/userAction'
 import {API} from '../api'
 import {setInitData} from '../../helpers/storageFunctions'
 import history from '../../history';

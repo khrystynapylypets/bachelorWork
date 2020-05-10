@@ -1,6 +1,6 @@
 import {takeEvery, call, put} from 'redux-saga/effects'
 import {LOGIN} from '../actions/constants'
-import {loginSuccess, loginFail, initUser} from '../actions'
+import {loginSuccess, loginFail, initUser} from '../actions/userAction'
 import {API} from '../api'
 import {setInitData} from '../../helpers/storageFunctions'
 import history from '../../history';
