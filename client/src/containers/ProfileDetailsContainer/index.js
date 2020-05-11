@@ -1,34 +1,26 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { ProfileDetails } from '../../components/ProfileDetails';
-import { getUserData } from '../../store/actions';
-import { formatDate } from '../../helpers/generalFunctions'
+import { formatDate } from '../../helpers/generalFunctions';
+import { userActions } from '../../store/actions/userActions';
 
 const mapStateToProps = (state) => ({
-    loading: state.user.loading,
-    email: state.user.email,
-    firstName: state.user.firstName,
-    secondName: state.user.secondName,
-    lastName: state.user.lastName,
-    dateWork: formatDate(state.user.dateWork),
-    academicStatus: state.user.academicStatus,
-    dateBirth: formatDate(state.user.dateBirth),
-    phoneNumber: state.user.phoneNumber,
-})
+  loading: state.user.loading,
+  email: state.user.email,
+  firstName: state.user.firstName,
+  secondName: state.user.secondName,
+  lastName: state.user.lastName,
+  dateWork: formatDate(state.user.dateWork),
+  academicStatus: state.user.academicStatus,
+  dateBirth: formatDate(state.user.dateBirth),
+  phoneNumber: state.user.phoneNumber,
+});
 
-const mapDispatchToProps = {
-    getUserData,
+function mapDispatchToProps(dispatch) {
+  return {
+    userActions: userActions.bind(dispatch),
+  };
 }
 
+const ProfileDetailsContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileDetails);
 
-function mergeProps(stateProps, dispatchProps, ownProps) {
-    return {
-        ...stateProps,
-        ...dispatchProps,
-        ...ownProps,
-    }
-}
-
-const ProfileDetailsContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(ProfileDetails)
-
-export default ProfileDetailsContainer
+export default ProfileDetailsContainer;

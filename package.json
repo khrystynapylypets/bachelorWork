@@ -12,9 +12,11 @@
     "lint:sass": "sass-lint --verbose -c .sass-lint.yml",
     "lint": "npm run lint:js && npm run lint:sass"
   },
-  "precommit": [
-    "lint"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/khrystynapylypets/bachelorWork"
@@ -44,13 +46,14 @@
     "@babel/node": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "concurrently": "^3.5.1",
-    "eslint": "^6.8.0",
+    "eslint": "^5.16.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5"
   }
 }

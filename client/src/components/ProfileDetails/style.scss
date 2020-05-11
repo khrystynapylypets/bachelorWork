@@ -7,11 +7,12 @@
     text-align: center;
     background: $main-color;
 
+    // sass-lint:disable nesting-depth
     .avatar {
-      height: 112px;
       width: 112px;
-      border: 4px solid $white;
+      height: 112px;
       margin: 40px auto 10px;
+      border: 4px solid $white;
       border-radius: 50%;
 
       img {
@@ -35,9 +36,9 @@
       width: 50px;
       height: 50px;
       margin: 0 15px;
+      cursor: pointer;
       background-color: $black-15;
       border-radius: 50%;
-      cursor: pointer;
 
       .icon {
         position: absolute;
@@ -52,8 +53,8 @@
       margin: 0;
       font-size: 24px;
       line-height: 1.34;
-      text-align: center;
       color: $white;
+      text-align: center;
     }
 
     .academicStatus {
@@ -64,8 +65,8 @@
   }
 
   .details {
-    padding: 10px 10px 10px 20px;
     min-height: 50px;
+    padding: 10px 10px 10px 20px;
 
     h3 {
       font-size: 20px;
@@ -84,8 +85,8 @@
 
   .card {
     background: $white;
-    border-radius: 0;
     border: 0;
+    border-radius: 0;
   }
 
 }

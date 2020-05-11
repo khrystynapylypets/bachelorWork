@@ -1,9 +1,11 @@
 @import 'variables';
 
 body {
-  background: $body-back;
   color: $mine-shaft;
+  background: $body-back;
 
+  // sass-lint:disable nesting-depth
+  // sass-lint:disable no-ids
   #popover-email,
   #popover-phone {
     &.bs-popover-bottom {

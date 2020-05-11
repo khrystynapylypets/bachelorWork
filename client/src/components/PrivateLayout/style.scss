@@ -2,9 +2,9 @@
 
 .private-layout {
   .header {
-    padding: 0;
     position: fixed;
     z-index: 2;
+    padding: 0;
     box-shadow: 0 10px 10px -7px $grey;
   }
 
@@ -13,9 +13,9 @@
   }
 
   .navbar {
+    justify-content: space-between;
     width: 100%;
     padding: 10px 30px;
-    justify-content: space-between;
     background: $white;
 
     .navigation {
@@ -29,8 +29,8 @@
   }
 
   .search-form {
-    width: 60%;
     flex-wrap: nowrap;
+    width: 60%;
 
     .search {
       width: 100%;

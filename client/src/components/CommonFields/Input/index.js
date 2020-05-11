@@ -1,5 +1,5 @@
-import React from 'react'
-import { Form } from 'react-bootstrap'
+import React from 'react';
+import { Form } from 'react-bootstrap';
 
 export const Input = ({ input, type, placeholder, meta: { touched, error } }) => {
   return (
@@ -12,5 +12,5 @@ export const Input = ({ input, type, placeholder, meta: { touched, error } }) =>
       {touched
       && ((error && <span className='error-field'>{error}</span>))}
     </>
-  )
-}
+  );
+};

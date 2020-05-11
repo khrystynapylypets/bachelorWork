@@ -1,7 +1,7 @@
-import React from 'react'
-import { Field } from 'redux-form'
-import { Input } from '../CommonFields/Input'
-import { PublicLayout } from '../PublicLayout'
+import React from 'react';
+import { Field } from 'redux-form';
+import { Input } from '../CommonFields/Input';
+import { PublicLayout } from '../PublicLayout';
 import {
   Container,
   Row,
@@ -9,7 +9,7 @@ import {
   Button,
   Form,
   Spinner,
-} from 'react-bootstrap'
+} from 'react-bootstrap';
 
 export const ForgotPassword = ({ handleSubmit, invalid, submitting, onSubmit }) => (
   <PublicLayout>
@@ -38,12 +38,12 @@ export const ForgotPassword = ({ handleSubmit, invalid, submitting, onSubmit }) 
               disabled={invalid || submitting}
               type='submit'
             >
-              {submitting ? <Spinner animation='border' variant='primary'/> : 'Відправити'}
+              {submitting ? <Spinner animation='border' variant='primary' /> : 'Відправити'}
             </Button>
           </Col>
         </Row>
       </Container>
     </form>
   </PublicLayout>
-)
+);
 
