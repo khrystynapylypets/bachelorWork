@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
-import { ForgotPassword } from '../../components/ForgotPassword'
-import { reduxForm } from 'redux-form'
-import { validate } from '../../utils/validation'
-import { connect } from 'react-redux'
-import { resetPassword } from '../../store/actions/userAction'
+import React, { Component } from 'react';
+import { ForgotPassword } from '../../components/ForgotPassword';
+import { reduxForm } from 'redux-form';
+import { validate } from '../../utils/validation';
+import { connect } from 'react-redux';
+import { userActions } from '../../store/actions/userActions';
 
 
 class ForgotPasswordContainer extends Component {
   handleOnSubmit = (email) => {
-    const { resetPassword } = this.props
+    const { userActions } = this.props;
 
-    resetPassword(email)
+    userActions.resetPassword(email);
   }
 
   render() {
-    const { handleSubmit, submitting, invalid } = this.props
+    const { handleSubmit, submitting, invalid } = this.props;
 
     return (
       <ForgotPassword
@@ -23,12 +23,14 @@ class ForgotPasswordContainer extends Component {
         invalid={invalid}
         submitting={submitting}
       />
-    )
+    );
   }
 }
 
-const mapDispatchToProps = {
-  resetPassword,
+function mapDispatchToProps(dispatch) {
+  return {
+    userActions: userActions.bind(dispatch),
+  };
 }
 
 export default connect(
@@ -39,4 +41,4 @@ export default connect(
     form: 'forgotPassword',
     validate,
   })(ForgotPasswordContainer),
-)
+);

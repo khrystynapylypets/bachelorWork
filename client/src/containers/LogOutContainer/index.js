@@ -1,32 +1,15 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { logoutUser } from '../../store/actions/userAction'
-import { Button } from 'react-bootstrap'
-import { IoIosLogOut } from 'react-icons/io'
+import { connect } from 'react-redux';
+import { LogOut } from '../../components/LogOut';
+import { userActions } from '../../store/actions/userActions';
 
 
-class LogOutContainer extends Component {
-
-  handleLogout = () => {
-    const {logoutUser} = this.props
-
-    logoutUser()
-  }
-
-  render() {
-    return (
-        <Button variant='primary' onClick={this.handleLogout}>
-          Вийти <IoIosLogOut/>
-        </Button>
-    )
-  }
-}
-
-const mapDispatchToProps = {
-  logoutUser,
+function mapDispatchToProps(dispatch) {
+  return {
+    userActions: userActions.bind(dispatch),
+  };
 }
 
 export default connect(
-    null,
-    mapDispatchToProps,
-)(LogOutContainer)
+  null,
+  mapDispatchToProps,
+)(LogOut);

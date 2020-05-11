@@ -1,3 +1,3 @@
 export const checkRequiredFields = (arrayOfFields) => {
-  return arrayOfFields.every((item) => !(item === undefined))
-}
+  return arrayOfFields.every((item) => !(item === undefined));
+};

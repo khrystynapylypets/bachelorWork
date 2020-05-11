@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import {
   Container,
   Row,
   Col,
-} from 'react-bootstrap'
-import './style.scss'
+} from 'react-bootstrap';
+import './style.scss';
 import nulpLogo from './assets/nulp_logo.jpg';
 
 export const PublicLayout = ({ children }) => (
@@ -24,4 +24,4 @@ export const PublicLayout = ({ children }) => (
       </Col>
     </Row>
   </Container>
-)
+);

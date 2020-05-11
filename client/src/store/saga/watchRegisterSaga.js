@@ -1,30 +1,30 @@
-import {takeEvery, call, put} from 'redux-saga/effects'
-import {REGISTER} from '../actions/constants'
-import {registerSuccess, registerFail, initUser} from '../actions/userAction'
-import {API} from '../api'
-import {setInitData} from '../../helpers/storageFunctions'
+import { takeEvery, call, put } from 'redux-saga/effects';
+import { userActions } from '../actions/userActions';
+import { API } from '../api';
+import { setInitData } from '../../helpers/storageFunctions';
 import history from '../../history';
 
-function* workRegisterUser({user}) {
-    try {
-        let {headers, data} = yield call(registerUser, user)
-        setInitData(headers['access-token'], data.user)
+function* workRegisterUser({ user }) {
+  try {
+    let { headers, data } = yield call(registerUser, user);
 
-        yield put(registerSuccess())
-        yield put(initUser(data.user))
+    setInitData(headers['access-token'], data.user);
 
-        history.push('/home')
+    yield put(userActions.registerSuccess());
+    yield put(userActions.initUser(data.user));
 
-    } catch (e) {
-        let errorMessage = e.response ? e.response.data.message : e.message
-        yield put(registerFail(errorMessage))
-    }
+    history.push('/home');
+  } catch (e) {
+    let errorMessage = e.response ? e.response.data.message : e.message;
+
+    yield put(userActions.registerFail(errorMessage));
+  }
 }
 
 export function* watchRegisterUser() {
-    yield takeEvery(REGISTER, workRegisterUser)
+  yield takeEvery(userActions.types.REGISTER, workRegisterUser);
 }
 
 const registerUser = (userData) => {
-    return API.post('/users/register', userData)
-}
+  return API.post('/users/register', userData);
+};

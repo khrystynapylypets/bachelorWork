@@ -1,51 +1,52 @@
-import React, { Component } from 'react'
-import { Registration } from '../../components/Registration'
-import { reduxForm } from 'redux-form'
-import { validate } from '../../utils/validation'
-import { registerUser } from '../../store/actions/userAction'
-import { connect } from 'react-redux'
-import { ErrorAlert } from '../../components/ErrorAlert'
+import React, { Component } from 'react';
+import { Registration } from '../../components/Registration';
+import { reduxForm } from 'redux-form';
+import { validate } from '../../utils/validation';
+import { connect } from 'react-redux';
+import { ErrorAlert } from '../../components/ErrorAlert';
+import { userActions } from '../../store/actions/userActions';
 
 class RegistrationContainer extends Component {
-
   componentDidMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
-  handleOnSubmit = (user) => {
-    const { registerUser, reset } = this.props
+    handleOnSubmit = (user) => {
+      const { userActions, reset } = this.props;
 
-    registerUser(user)
-    reset()
-  }
+      userActions.registerUser(user);
+      reset();
+    }
 
 
-  render() {
-    const { handleSubmit, submitting, invalid, errorMessage } = this.props
+    render() {
+      const { handleSubmit, submitting, invalid, errorMessage } = this.props;
 
-    return (
-      <>
-        {errorMessage.length > 0 &&
-        <ErrorAlert description={errorMessage}/>
-        }
-        <Registration
-          handleSubmit={handleSubmit}
-          onSubmit={this.handleOnSubmit}
-          submitting={submitting}
-          invalid={invalid}
-        />
-      </>
-    )
-  }
+      return (
+        <>
+          {errorMessage
+                && <ErrorAlert description={errorMessage} />
+          }
+          <Registration
+            handleSubmit={handleSubmit}
+            onSubmit={this.handleOnSubmit}
+            submitting={submitting}
+            invalid={invalid}
+          />
+        </>
+      );
+    }
 }
 
-const mapDispatchToProps = {
-  registerUser,
+function mapDispatchToProps(dispatch) {
+  return {
+    userActions: userActions.bind(dispatch),
+  };
 }
 
 const mapStateToProps = ({ user }) => ({
   errorMessage: user.error,
-})
+});
 
 
 export default connect(
@@ -56,4 +57,4 @@ export default connect(
     form: 'registerForm',
     validate,
   })(RegistrationContainer),
-)
+);
