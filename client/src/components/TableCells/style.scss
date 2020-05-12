@@ -1,0 +1,129 @@
+h6.subject{
+    border: 1px solid rgb(90, 75, 75);
+    margin-bottom: 2px;
+}
+
+button.subject-button{
+    background-color: #a4ccdf;
+    border-color: #a4ccdf;
+    color: #000;
+    width: 150px;
+    font-size: 14px;
+    margin: 0 0 5px 0;
+    // margin-left: 14%;
+    padding: 0 0 3px 0;
+}
+
+.main-table2 button.subject-button{
+    width: 150px;
+}
+
+.main-table button.subject-button{
+    width: 250px;
+}
+
+button.subject-button:hover, button.subject-button:focus{
+    background-color: #bfebff;
+    border-color: #bfebff;
+    color: #000;
+}
+
+button.add-subject{
+    font-size: 14px;
+    padding: 2px 0 5px 0;
+    width: 150px;
+    margin: 0;
+}
+
+.main-table2 button.add-subject{
+    width: 150px;
+}
+
+.main-table button.add-subject{
+    width: 250px;
+}
+
+button.add-subject:hover, button.add-subject:focus{
+    background-color: #0052aa;
+    border-color: #0052aa;
+}
+
+.subjects-type{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 18px;
+    padding: 0 0 10px 0;
+}
+
+.select-name{
+    margin: 5px;
+}
+
+button.delete-button{
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
+
+button.delete-button:hover{
+    background-color: #f13b3b;
+    border-color: #f13b3b;
+}
+
+button.save-button{
+    background-color: #0c9200;
+    border-color: #0c9200;
+}
+
+button.save-button:hover{
+    background-color: #4bb941;
+    border-color: #4bb941;
+}
+
+button.save-button:focus{
+    background-color: #0c9200;
+    border-color: #0c9200;
+}
+
+button.save-button:not(:disabled):not(.disabled):active{
+    background-color: #0c9200;
+    border-color: #0c9200;
+}
+
+button.delete-button:not(:disabled):not(.disabled):active{
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
+
+button.delete-button:focus{
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
+
+button.popup-button.save-button{
+    width: 60%;
+    margin: 5px 20%;
+}
+
+
+button.popup-button{
+    width: 70%;
+    margin: 5px 15%;
+}
+
+button{
+    display: block;
+}
+
+.teachers-list label {
+    margin-left: 25px;
+}
+
+.teachers-list{
+    position: relative;
+}
+
+.teachers-list input {
+
+    position: absolute;
+    margin: 5px 0 0 10px;
+}

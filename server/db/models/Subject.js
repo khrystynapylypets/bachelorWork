@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const SubjectSchema = new mongoose.Schema({
   name: {
@@ -7,7 +7,7 @@ const SubjectSchema = new mongoose.Schema({
   type: {
     type: String,
   },
-})
+});
 
 
-export default mongoose.model('Subject', SubjectSchema)
+export default mongoose.model('Subject', SubjectSchema);

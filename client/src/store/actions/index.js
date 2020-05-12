@@ -21,7 +21,11 @@ import {
   GET_SPECIALITY_SUBJECTS_SUCCESS,
   GET_SELECTIVE_SUBJECTS,
   GET_SELECTIVE_SUBJECTS_FAIL,
-  GET_SELECTIVE_SUBJECTS_SUCCESS
+  GET_SELECTIVE_SUBJECTS_SUCCESS,
+  CREATE_EMPTY_SCHEDULE,
+  ADD_SUBJECT,
+  ADD_COEFFICIENT,
+  DELETE_SUBJECT
 } from './constants'
 
 export const registerUser = (user) => ({
@@ -135,3 +139,28 @@ export const getSelectiveSubjectsFail = (error) => ({
   type: GET_SELECTIVE_SUBJECTS_FAIL,
   error
 })
+
+export const createEmptySchedule = (numberOfSemesters) => ({
+  type: CREATE_EMPTY_SCHEDULE,
+  numberOfSemesters
+})
+
+export const addSubject = (numberOfSemester, subject) => ({
+  type: ADD_SUBJECT,
+  numberOfSemester,
+  subject
+})
+
+export const addCoefficient = (idOfSubject, coefficient) => ({
+  type: ADD_COEFFICIENT,
+  idOfSubject,
+  coefficient
+})
+
+export const deleteSubject = (idOfSubject, typeOfSubject, numberOfSemester) => ({
+  type: DELETE_SUBJECT,
+  idOfSubject,
+  typeOfSubject,
+  numberOfSemester
+})
+

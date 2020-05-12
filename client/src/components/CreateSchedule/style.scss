@@ -15,70 +15,67 @@
     border: 1px solid #ced4da;
 }
 
-.first-area{
-    height: 200px;
-    //background-color: #87CEFA;
+.first-area, .second-area, .third-area{
+    margin: 40px 0;
 }
 
-.second-area{
-    height: 150px;
-    //background-color:#B0E0E6;
+.main-table2{
+    box-sizing: border-box;
 }
 
-.third-area{
-    height: 100px;
-    //background-color: 	#B0C4DE;
+.main-table2 tbody {
+    td {
+    padding: 30px 18px;
+    }
+    .fourth-area td {
+        background: #fff;
+        border: none;
+        padding: 0;
+        color: #007bff;
+        font-weight: 700;
+    }
 }
 
-.main-table .fourth-area td, .main-table2 .fourth-area td{
-    background: #fff;
-    border: none;
-    padding: 10px;
-    color: #007bff;
-    font-weight: 700;
-}
-
-.main-table td {
+.main-table tbody {
+    td {
+    padding: 30px 60px;
     font-size: 20px;
+    }
+    .fourth-area td{
+        background: #fff;
+        border: none;
+        padding: 0;
+        color: #007bff;
+        font-weight: 700;
+    }
 }
+
 
 .main-table2 .fourth-area td{
     font-size: 17px;
 }
 
 
-tbody .first-area td:hover {
-    background-color:rgb(122, 176, 212);
+tbody {
+    .first-area td:hover {
+        background-color:rgb(122, 176, 212);
+    }
+    .second-area td:hover {
+        background-color:rgb(89, 188, 241);
+    }
+    .third-area td:hover {
+        background-color:rgb(159, 167, 172);
+    }
 }
 
-tbody .second-area td:hover {
-    background-color:rgb(150, 206, 243);
-}
-
-tbody .third-area td:hover {
-    background-color:rgb(173, 183, 189);
-}
-
-tbody td {
-    border: 1px solid #ced4da;
-    // border-right: 1px solid #ced4da;
+tbody, thead {
+    td{
+        border: 1px solid #ced4da;
+    }
 }
 
 .main-table, .main-table2{
     margin: 50px auto;
-    width: 100%;
-}
-
-.main-table td, .main-table2 td {
-    padding: 20px 50px;
-}
-
-.main-table2 td {
-    padding: 15px;
-}
-
-.table-title{
-    background-color: #a0caf7;
 }
 
 .main-table .title td, .main-table2 .title td {
@@ -93,39 +90,26 @@ td {
 
 .center{
     width: 50%;
-    margin: 0 50px;
+    margin: 0 25%;
     box-sizing: border-box;
 }
 
 button.save-btn{
-    margin-bottom: 50px;
+    margin: 30px auto;
     width: 150px;
     height: 50px;
     font-weight: 800;
-    // color: #fff;
     background-color: #7da5b8;
     border-color: #7da5b8;
 }
 
 button.save-btn:hover {
-    // color: #fff;
-    // background-color: rgb(2, 168, 2);
-    // border-color: rgb(2, 168, 2);
-    // background-color: #a0caf7;
-    // border-color: #a0caf7;
     background-color: #007bff;
     border-color: #007bff;
 }
 
-.select-width{
-    width: 200px;
-}
-
-// table .title{
-//     color: #fff;
-// }
-
 .table-container {
-    max-width: 95%;
-    margin: 0 auto;
+    max-width: auto;
+    margin: 0 10px;
 }
+

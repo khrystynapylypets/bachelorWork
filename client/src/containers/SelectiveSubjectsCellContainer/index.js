@@ -1,30 +1,35 @@
-import React, { Component } from 'react'
-import { SelectiveSubjectsCell } from '../../components/TableCells'
-import { getSelectiveSubjects } from '../../store/actions'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { SubjectsCell } from '../../components/TableCells';
+import { subjectsActions } from '../../store/actions/subjectsActions';
+import { connect } from 'react-redux';
 
 class SelectiveSubjectsCellContainer extends Component {
 
-    
-    render() {
-        
-        return (
-            <>
-                <SelectiveSubjectsCell getAllSubjects={this.props.getSelectiveSubjects} subjects={this.props.subjects} />
-            </>
-        )
-    }
+  render() {
+    return (
+      <>
+        <SubjectsCell name='Вибіркові дисципліни' getAllSubjects={this.props.subjectsActions.getSelectiveSubjects} subjects={this.props.subjects}
+          addSubject={this.props.subjectsActions.addSubject} semester={this.props.semester}
+          scheduleOfSemesters={this.props.scheduleOfSemesters} schedule={this.props.schedule} typeOfSubjects='selectiveSubjects'
+          addCoefficient={this.props.subjectsActions.addCoefficient} deleteSubject={this.props.deleteSubject} />
+      </>
+    );
+  }
 }
 
-const mapDispatchToProps = {
-    getSelectiveSubjects
+function mapDispatchToProps(dispatch) {
+  return {
+    subjectsActions: subjectsActions.bind(dispatch),
+  };
 }
 
-const mapStateToProps = ({ subjects }) => ({
-    subjects: subjects.selectiveSubjects,
+const mapStateToProps = ({ subjects, schedule }) => ({
+  subjects: subjects.selectiveSubjects,
+  scheduleOfSemesters: schedule.semesters,
+  schedule: schedule,
 })
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(SelectiveSubjectsCellContainer)
+  mapStateToProps,
+  mapDispatchToProps,
+)(SelectiveSubjectsCellContainer);

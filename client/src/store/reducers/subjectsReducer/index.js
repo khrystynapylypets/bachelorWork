@@ -1,4 +1,4 @@
-import { subjectsActions } from '../actions/subjectsActions'
+import { subjectsActions } from '../../actions/subjectsActions'
   
   const initState = {
     error: '',
@@ -54,4 +54,3 @@ import { subjectsActions } from '../actions/subjectsActions'
         return prevState
     }
   }
-  

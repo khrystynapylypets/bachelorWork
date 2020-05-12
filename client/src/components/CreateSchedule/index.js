@@ -1,138 +1,129 @@
-import React, { Component } from 'react'
-import './style.scss'
-import {Coefficients} from '../../components/TableCells/index'
-import  GeneralSubjectsCellContainer from '../../containers/GeneralSubjectsCellContainer'
-import  SpecialitySubjectsCellContainer from '../../containers/SpecialitySubjectsCellContainer'
-import  SelectiveSubjectsCellContainer from '../../containers/SelectiveSubjectsCellContainer'
+import React, { Component } from 'react';
+import './style.scss';
+import GeneralSubjectsCellContainer from '../../containers/GeneralSubjectsCellContainer';
+import SpecialitySubjectsCellContainer from '../../containers/SpecialitySubjectsCellContainer';
+import SelectiveSubjectsCellContainer from '../../containers/SelectiveSubjectsCellContainer';
+import CoefficientsCellContainer from '../../containers/CoefficientsCellContainer';
 import {
-    Container,
-} from 'react-bootstrap'
+  Container,
+  Table
+} from 'react-bootstrap';
 
 
 
 class CreateSchedule extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            isChosen: false,
-            discipline: ''
-        };
-    }
+  render() {
+    return (
+      <div className='headings'>
+        <h1 className='main-heading title'>Навчальний план</h1>
+        <h2 className='subheadings title'>Спеціальність:
+                    {this.props.degree === 'Бакалавр' ? " Комп'ютерні науки"
+            : " Комп'ютерні науки та системи управління"}</h2>
+        <h2 className='subheadings title'>Кафедра: Автоматизовані системи управління</h2>
+        <h2 className='subheadings title'>Освітній ступінь: {this.props.degree}</h2>
+        <h2 className='subheadings title'>Форма навчання: {this.props.form}</h2>
 
-    ChooseDiscipline = () => {
-        this.setState({
-            isChosen: true
-        })
-    }
-
-    render() {
-        return (
-            <div className='headings'>
-                <h1 className='main-heading title'>Графік дисциплін</h1>
-                <h2 className='subheadings title'>Спеціальність:
-                    {this.props.degree === 'Бакалавр' ? <p className='subheadings title'>Автоматизовані системи управління</p>
-                        : <p className='subheadings title'>(Уточнити)</p>}</h2>
-                <h2 className='subheadings title'>Освітній ступінь: {this.props.degree}</h2>
-                <h2 className='subheadings title'>Форма навчання: {this.props.form}</h2>
-
-                {this.props.degree === 'Бакалавр' ?
-                    <div className='table-container' >
-                        <table className='main-table2'>
-                            <tbody>
-                                <tr className='title'>
-                                    <td>I семестр</td>
-                                    <td>II семестр</td>
-                                    <td>III семестр</td>
-                                    <td>IV семестр</td>
-                                    <td>V семестр</td>
-                                    <td>VI семестр</td>
-                                    <td>VII семестр</td>
-                                    <td>VIII семестр</td>
-                                </tr>
-                                <tr className='first-area'>
-                                    {/* <GeneralSubjectsCell getAllSubjects={this.props.getAllSubjects} subjects={this.props.subjects} onSelectClick={this.props.onSelectClick} ChooseDiscipline={this.ChooseDiscipline} isChosen={this.state.isChosen}/> */}
-                                    <GeneralSubjectsCellContainer />
-                                    <GeneralSubjectsCellContainer />
-                                    <GeneralSubjectsCellContainer />
-                                    <GeneralSubjectsCellContainer />
-                                    <GeneralSubjectsCellContainer />
-                                    <GeneralSubjectsCellContainer />
-                                    <GeneralSubjectsCellContainer />
-                                    <GeneralSubjectsCellContainer />
-                                </tr>
-                                <tr className='second-area'>
-                                    <SpecialitySubjectsCellContainer />
-                                    <SpecialitySubjectsCellContainer />
-                                    <SpecialitySubjectsCellContainer />
-                                    <SpecialitySubjectsCellContainer />
-                                    <SpecialitySubjectsCellContainer />
-                                    <SpecialitySubjectsCellContainer />
-                                    <SpecialitySubjectsCellContainer />
-                                    <SpecialitySubjectsCellContainer />
-                                </tr>
-                                <tr className='third-area'>
-                                    <SelectiveSubjectsCellContainer />
-                                    <SelectiveSubjectsCellContainer />
-                                    <SelectiveSubjectsCellContainer />
-                                    <SelectiveSubjectsCellContainer />
-                                    <SelectiveSubjectsCellContainer />
-                                    <SelectiveSubjectsCellContainer />
-                                    <SelectiveSubjectsCellContainer />
-                                    <SelectiveSubjectsCellContainer />
-                                </tr>
-                                <tr className='fourth-area'>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    :
-                    <Container >
-                        <table className='main-table'>
-                            <tbody>
-                                <tr className='title'>
-                                    <td>I семестр</td>
-                                    <td>II семестр</td>
-                                    <td>III семестр</td>
-                                </tr>
-                                <tr className='first-area'>
-                                    <GeneralSubjectsCellContainer />
-                                    <GeneralSubjectsCellContainer />
-                                    <GeneralSubjectsCellContainer />
-                                </tr>
-                                <tr className='second-area'>
-                                    <SpecialitySubjectsCellContainer />
-                                    <SpecialitySubjectsCellContainer />
-                                    <SpecialitySubjectsCellContainer />
-                                </tr>
-                                <tr className='third-area'>
-                                    <SelectiveSubjectsCellContainer />
-                                    <SelectiveSubjectsCellContainer />
-                                    <SelectiveSubjectsCellContainer />
-                                </tr>
-                                <tr className='fourth-area'>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                    <Coefficients coefficients={this.props.coefficients}/>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </Container>
-                }
-                <button type="submit" className="save-btn btn btn-primary" disabled="">
-                    ЗБЕРЕГТИ
+        {this.props.degree === 'Бакалавр' ?
+          <div className='table-container' >
+            <Table className='main-table2'>
+              <thead>
+                <tr className='title'>
+                  <td>I семестр</td>
+                  <td>II семестр</td>
+                  <td>III семестр</td>
+                  <td>IV семестр</td>
+                  <td>V семестр</td>
+                  <td>VI семестр</td>
+                  <td>VII семестр</td>
+                  <td>VIII семестр</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className='first-area'>
+                  <GeneralSubjectsCellContainer semester='1' />
+                  <GeneralSubjectsCellContainer semester='2' />
+                  <GeneralSubjectsCellContainer semester='3' />
+                  <GeneralSubjectsCellContainer semester='4' />
+                  <GeneralSubjectsCellContainer semester='5' />
+                  <GeneralSubjectsCellContainer semester='6' />
+                  <GeneralSubjectsCellContainer semester='7' />
+                  <GeneralSubjectsCellContainer semester='8' />
+                </tr>
+                <tr className='second-area'>
+                  <SpecialitySubjectsCellContainer semester='1' />
+                  <SpecialitySubjectsCellContainer semester='2' />
+                  <SpecialitySubjectsCellContainer semester='3' />
+                  <SpecialitySubjectsCellContainer semester='4' />
+                  <SpecialitySubjectsCellContainer semester='5' />
+                  <SpecialitySubjectsCellContainer semester='6' />
+                  <SpecialitySubjectsCellContainer semester='7' />
+                  <SpecialitySubjectsCellContainer semester='8' />
+                </tr>
+                <tr className='third-area'>
+                  <SelectiveSubjectsCellContainer semester='1' />
+                  <SelectiveSubjectsCellContainer semester='2' />
+                  <SelectiveSubjectsCellContainer semester='3' />
+                  <SelectiveSubjectsCellContainer semester='4' />
+                  <SelectiveSubjectsCellContainer semester='5' />
+                  <SelectiveSubjectsCellContainer semester='6' />
+                  <SelectiveSubjectsCellContainer semester='7' />
+                  <SelectiveSubjectsCellContainer semester='8' />
+                </tr>
+                <tr className='fourth-area'>
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='1' />
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='2' />
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='3' />
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='4' />
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='5' />
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='6' />
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='7' />
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='8' />
+                </tr>
+              </tbody>
+            </Table>
+          </div>
+          :
+          <Container >
+            <Table className='main-table'>
+              <thead>
+                <tr className='title'>
+                  <td>I семестр</td>
+                  <td>II семестр</td>
+                  <td>III семестр</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className='first-area'>
+                  <GeneralSubjectsCellContainer semester='1' />
+                  <GeneralSubjectsCellContainer semester='2' />
+                  <GeneralSubjectsCellContainer semester='3' />
+                </tr>
+                <tr className='second-area'>
+                  <SpecialitySubjectsCellContainer semester='1' />
+                  <SpecialitySubjectsCellContainer semester='2' />
+                  <SpecialitySubjectsCellContainer semester='3' />
+                </tr>
+                <tr className='third-area'>
+                  <SelectiveSubjectsCellContainer semester='1' />
+                  <SelectiveSubjectsCellContainer semester='2' />
+                  <SelectiveSubjectsCellContainer semester='3' />
+                </tr>
+                <tr className='fourth-area'>
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='1' />
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='2' />
+                  <CoefficientsCellContainer coefficients={this.props.coefficients} semester='3' />
+                </tr>
+              </tbody>
+            </Table>
+          </Container>
+        }
+        <button type='submit' className='save-btn btn btn-primary' disabled=''>
+          ЗБЕРЕГТИ
                 </button>
-            </div>
-        )
-    }
+      </div>
+    );
+  }
 }
 
-export default CreateSchedule
+export default CreateSchedule;
