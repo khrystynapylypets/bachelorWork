@@ -1,16 +1,15 @@
-import { takeEvery, put } from 'redux-saga/effects'
-import { LOGOUT } from '../actions/constants'
-import { logoutSuccess } from '../actions';
-import { deleteToken } from '../../helpers/token'
-import history from '../../history'
+import { takeEvery, put } from 'redux-saga/effects';
+import { userActions } from '../actions/userActions';
+import { deleteInitData } from '../../helpers/storageFunctions';
+import history from '../../history';
 
 function* workLogoutUser() {
-  deleteToken()
-  yield put(logoutSuccess())
+  deleteInitData();
+  yield put(userActions.logoutSuccess());
 
-  history.push('/login')
+  history.push('/login');
 }
 
 export function* watchLogoutUser() {
-  yield takeEvery(LOGOUT, workLogoutUser)
+  yield takeEvery(userActions.types.LOGOUT, workLogoutUser);
 }

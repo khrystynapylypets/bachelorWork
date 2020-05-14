@@ -16,5 +16,6 @@ export const initSubjectsModel = async ({ name, type }) => {
 
 export const findAllSubjects = async () => {
   let subjects = await Subject.find();
+
   return subjects;
 };

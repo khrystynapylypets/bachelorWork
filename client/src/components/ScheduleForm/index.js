@@ -4,29 +4,35 @@ import {
   Container,
   Row,
   Col,
-  Form
+  Form,
 } from 'react-bootstrap';
 
-
-
-export const ScheduleForm = ({ handleSubmit, show, handleChangeDegree, handleChangeForm, handleChangeCoef, handleShow, handleClose }) => (
+export const ScheduleForm = ({ onHandleSubmit, show, onHandleChangeDegree, onHandleChangeForm, onHandleChangeCoef, onHandleShow, onHandleClose }) => (
   <div >
     {/* кнопка до кабінету завідувача */}
-    <button className='btn btn-primary' onClick={handleShow}>
+    <button
+      type='submit'
+      className='btn btn-primary'
+      onClick={onHandleShow}
+    >
       Створити графік
-        </button>
+    </button>
 
-    <Modal centered show={show} onHide={handleClose}>
-      <Form onSubmit={handleSubmit}>
+    <Modal 
+      centered 
+      show={show}
+      onHide={onHandleClose}
+    >
+      <Form onSubmit={onHandleSubmit}>
         <Container>
-          <Modal.Header closeButton id='modal-header'>
+          <Modal.Header closeButton className='form-modal-header'>
             <Modal.Title>Введіть необхідні дані</Modal.Title>
           </Modal.Header>
           <Row>
             <Col md={12}>
               <Form.Group controlId='degree'>
                 <Form.Label>Освітній ступінь:</Form.Label>
-                <Form.Control as='select' onChange={handleChangeDegree}>
+                <Form.Control as='select' onChange={onHandleChangeDegree}>
                   <option>Бакалавр</option>
                   <option>Магістр</option>
                   {/* <option>Доктор філософії</option> */}
@@ -39,7 +45,11 @@ export const ScheduleForm = ({ handleSubmit, show, handleChangeDegree, handleCha
             <Col md={12}>
               <Form.Group controlId='form'>
                 <Form.Label>Форма навчання:</Form.Label>
-                <Form.Control as='select' className='form-control' onChange={handleChangeForm}>
+                <Form.Control
+                  as='select'
+                  className='form-control'
+                  onChange={onHandleChangeForm}
+                >
                   <option>Денна</option>
                   <option>Заочна</option>
                 </Form.Control>
@@ -50,16 +60,29 @@ export const ScheduleForm = ({ handleSubmit, show, handleChangeDegree, handleCha
             <Col md={12}>
               <Form.Group controlId='coef'>
                 <Form.Label className='right'>Сума коефіцієнтів:</Form.Label>
-                <input type='number' id="quantity" placeholder='Вкажіть число' defaultValue='30' name='quantity' required min='1' className='form-control' onChange={handleChangeCoef} />
+                <input
+                  type='number'
+                  id='quantity'
+                  placeholder='Вкажіть число'
+                  defaultValue='30' name='quantity'
+                  required
+                  min='1'
+                  className='form-control'
+                  onChange={onHandleChangeCoef}
+                />
               </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col md={12}>
               <Form.Group controlId='button'>
-                <button type='submit' className="btn btn-primary btn-block" disabled='' onClick={handleClose}>
+                <button
+                  type='submit'
+                  className='btn btn-primary btn-block'
+                  onClick={onHandleClose}
+                >
                   Підтвердити
-                                        </button>
+                </button>
               </Form.Group>
             </Col>
           </Row>
@@ -67,4 +90,4 @@ export const ScheduleForm = ({ handleSubmit, show, handleChangeDegree, handleCha
       </Form>
     </Modal>
   </div>
-)
+);

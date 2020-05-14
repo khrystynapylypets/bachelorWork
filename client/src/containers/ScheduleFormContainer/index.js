@@ -6,7 +6,6 @@ import { subjectsActions } from '../../store/actions/subjectsActions';
 import { connect } from 'react-redux';
 
 class ScheduleFormContainer extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -31,35 +30,48 @@ class ScheduleFormContainer extends Component {
   }
 
   getCoefficients = () => {
-    return (this.state.coefficients);
+    const { coefficients } = this.state;
+
+    return (coefficients);
   }
 
   handleSubmit = (event) => {
     this.setState({ isSubmitted: true });
     event.preventDefault();
     let semesters;
-    this.state.degree === 'Бакалавр' ? (semesters = 8) : (semesters = 3);
+    const { degree } = this.state;
+    const { subjectsActions } = this.props;
 
-    this.props.subjectsActions.createEmptySchedule(semesters);
+    degree === 'Бакалавр' ? (semesters = 8) : (semesters = 3);
+    subjectsActions.createEmptySchedule(semesters);
   }
 
   handleClose = () => this.setState({ show: false });
   handleShow = () => { this.setState({ show: true, isSubmitted: false, degree: 'Бакалавр', form: 'Денна', coefficients: 30 }); };
 
   render() {
-    console.log(this.state.show);
+    const { show, degree, form, coefficients, isSubmitted } = this.state;
+
     return (
       <>
         <ScheduleForm
-          handleSubmit={this.handleSubmit}
-          handleChangeDegree={this.handleChangeDegree}
-          handleChangeForm={this.handleChangeForm}
-          handleChangeCoef={this.handleChangeCoef}
-          handleShow={this.handleShow}
-          handleClose={this.handleClose}
-          show={this.state.show}
+          onHandleSubmit={this.handleSubmit}
+          onHandleChangeDegree={this.handleChangeDegree}
+          onHandleChangeForm={this.handleChangeForm}
+          onHandleChangeCoef={this.handleChangeCoef}
+          onHandleShow={this.handleShow}
+          onHandleClose={this.handleClose}
+          show={show}
         />
-        {this.state.isSubmitted ? <CreateSchedule degree={this.state.degree} form={this.state.form} coefficients={this.state.coefficients} /> : null}
+        {isSubmitted
+          ? (
+            <CreateSchedule
+              degree={degree}
+              form={form}
+              coefficients={coefficients}
+            />
+          ) : null
+        }
       </>
     );
   }

@@ -4,32 +4,41 @@ import { subjectsActions } from '../../store/actions/subjectsActions';
 import { connect } from 'react-redux';
 
 class SpecialitySubjectsCellContainer extends Component {
+  render() {
+    const { subjectsActions, subjects, semester, scheduleOfSemesters, schedule } = this.props;
 
-    render() {
-        return (
-            <>
-                <SubjectsCell name='Фахові дисципліни' getAllSubjects={this.props.subjectsActions.getSpecialitySubjects} subjects={this.props.subjects} 
-                addSubject = {this.props.subjectsActions.addSubject} semester={this.props.semester}
-                scheduleOfSemesters = {this.props.scheduleOfSemesters} schedule={this.props.schedule} typeOfSubjects='specialitySubjects'
-                addCoefficient = {this.props.subjectsActions.addCoefficient} deleteSubject = {this.props.subjectsActions.deleteSubject} />
-            </>
-        );
-    }
+    return (
+      <>
+        <SubjectsCell
+          name='Фахові дисципліни'
+          getAllSubjects={subjectsActions.getSpecialitySubjects}
+          subjects={subjects}
+          addSubject={subjectsActions.addSubject}
+          semester={semester}
+          scheduleOfSemesters={scheduleOfSemesters}
+          schedule={schedule}
+          typeOfSubjects='specialitySubjects'
+          addCoefficient={subjectsActions.addCoefficient}
+          deleteSubject={subjectsActions.deleteSubject} 
+        />
+      </>
+    );
+  }
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-        subjectsActions: subjectsActions.bind(dispatch),
-    };
+  return {
+    subjectsActions: subjectsActions.bind(dispatch),
+  };
 }
 
 const mapStateToProps = ({ subjects, schedule }) => ({
-    subjects: subjects.specialitySubjects,
-    scheduleOfSemesters: schedule.semesters,
-    schedule: schedule,
-})
+  subjects: subjects.specialitySubjects,
+  scheduleOfSemesters: schedule.semesters,
+  schedule: schedule,
+});
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+  mapStateToProps,
+  mapDispatchToProps,
 )(SpecialitySubjectsCellContainer);

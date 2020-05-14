@@ -3,12 +3,16 @@ import { CoefficientsCell } from '../../components/TableCells';
 import { connect } from 'react-redux';
 
 class CoefficientsCellContainer extends Component {
-
   render() {
+    const { coefficients, semester, scheduleOfSemesters } = this.props;
+
     return (
       <>
-        <CoefficientsCell coefficients={this.props.coefficients} semester={this.props.semester}
-          scheduleOfSemesters={this.props.scheduleOfSemesters} />
+        <CoefficientsCell
+          coefficients={coefficients}
+          semester={semester}
+          scheduleOfSemesters={scheduleOfSemesters}
+        />
       </>
     );
   }
@@ -16,8 +20,8 @@ class CoefficientsCellContainer extends Component {
 
 const mapStateToProps = ({ schedule }) => ({
   scheduleOfSemesters: schedule.semesters,
-  schedule: schedule
-})
+  schedule: schedule,
+});
 
 export default connect(
   mapStateToProps,

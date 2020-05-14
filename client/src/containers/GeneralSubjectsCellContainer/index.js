@@ -4,14 +4,23 @@ import { subjectsActions } from '../../store/actions/subjectsActions';
 import { connect } from 'react-redux';
 
 class GeneralSubjectsCellContainer extends Component {
-
   render() {
+    const { subjectsActions, subjects, semester, scheduleOfSemesters, schedule } = this.props;
+
     return (
       <>
-        <SubjectsCell name='Загальні дисципліни' getAllSubjects={this.props.subjectsActions.getGeneralSubjects}
-          addSubject={this.props.subjectsActions.addSubject} subjects={this.props.subjects} semester={this.props.semester}
-          scheduleOfSemesters={this.props.scheduleOfSemesters} schedule={this.props.schedule} typeOfSubjects='generalSubjects'
-          addCoefficient={this.props.subjectsActions.addCoefficient} deleteSubject={this.props.subjectsActions.deleteSubject} />
+        <SubjectsCell
+          name='Загальні дисципліни'
+          getAllSubjects={subjectsActions.getGeneralSubjects}
+          addSubject={subjectsActions.addSubject}
+          subjects={subjects}
+          semester={semester}
+          scheduleOfSemesters={scheduleOfSemesters}
+          schedule={schedule}
+          typeOfSubjects='generalSubjects'
+          addCoefficient={subjectsActions.addCoefficient}
+          deleteSubject={subjectsActions.deleteSubject}
+        />
       </>
     );
   }
@@ -27,7 +36,7 @@ const mapStateToProps = ({ subjects, schedule }) => ({
   subjects: subjects.generalSubjects,
   scheduleOfSemesters: schedule.semesters,
   schedule: schedule,
-})
+});
 
 export default connect(
   mapStateToProps,

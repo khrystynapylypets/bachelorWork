@@ -1,115 +1,155 @@
-.headings{
-    text-align: center;
+$blue: #007bff;
+$white: #fff;
+$light-grey: #ced4da;
+$light-blue: #7da5b8;
+$columns-header: #a4ccdf;
+$first-area: rgb(122, 176, 212);
+$second-area: rgb(89, 188, 241);
+$third-area: rgb(159, 167, 172);
+
+
+.headings {
+  text-align: center;
 }
 
-.main-heading{
-    color: #007bff;
-    font-size: 50px;
+.main-heading {
+  font-size: 50px;
+  color: $blue;
 }
 
-.subheadings{
-    font-size: 22px;
+.subheadings {
+  font-size: 22px;
 }
 
-.border{
-    border: 1px solid #ced4da;
+.border {
+  border: 1px solid $light-grey;
 }
 
-.first-area, .second-area, .third-area{
-    margin: 40px 0;
+.first-area,
+.second-area,
+.third-area {
+  margin: 40px 0;
 }
 
-.main-table2{
-    box-sizing: border-box;
-}
+.main-table2 {
+  margin: 50px auto;
 
-.main-table2 tbody {
+  tbody {
     td {
-    padding: 30px 18px;
+      padding: 30px 18px;
     }
-    .fourth-area td {
-        background: #fff;
-        border: none;
-        padding: 0;
-        color: #007bff;
-        font-weight: 700;
-    }
-}
 
-.main-table tbody {
+    .fourth-area {
+      td {
+        padding: 0;
+        font-size: 17px;
+        font-weight: 700;
+        color: $blue;
+        border: 0;
+      }
+    }
+  }
+
+  .title {
     td {
-    padding: 30px 60px;
-    font-size: 20px;
+      font-weight: 700;
+      background-color: $columns-header;
     }
-    .fourth-area td{
-        background: #fff;
-        border: none;
+  }
+}
+
+.main-table {
+  margin: 50px auto;
+
+  tbody {
+    td {
+      padding: 30px 60px;
+      font-size: 20px;
+    }
+
+    .fourth-area {
+      td {
         padding: 0;
-        color: #007bff;
         font-weight: 700;
+        color: $blue;
+        border: 0;
+      }
     }
+  }
+
+  .title {
+    td {
+      font-weight: 700;
+      background-color: $columns-header;
+    }
+  }
 }
 
-
-.main-table2 .fourth-area td{
-    font-size: 17px;
+.first-area {
+  td {
+    &:hover {
+      background-color: $first-area;
+    }
+  }
 }
 
-
-tbody {
-    .first-area td:hover {
-        background-color:rgb(122, 176, 212);
+.second-area {
+  td {
+    &:hover {
+      background-color: $second-area;
     }
-    .second-area td:hover {
-        background-color:rgb(89, 188, 241);
-    }
-    .third-area td:hover {
-        background-color:rgb(159, 167, 172);
-    }
+  }
 }
 
-tbody, thead {
-    td{
-        border: 1px solid #ced4da;
+.third-area {
+  td {
+    &:hover {
+      background-color: $third-area;
     }
+  }
 }
 
-.main-table, .main-table2{
-    margin: 50px auto;
-}
-
-.main-table .title td, .main-table2 .title td {
-    font-weight: 700;
-    background-color: #a4ccdf;
+tbody,
+thead {
+  td {
+    border: 1px solid $light-grey;
+  }
 }
 
 td {
-    font-weight: 500;
-    font-size: 18px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
-.center{
-    width: 50%;
-    margin: 0 25%;
-    box-sizing: border-box;
+.center {
+  width: 50%;
+  margin: 0 25%;
+  box-sizing: border-box;
 }
 
-button.save-btn{
-    margin: 30px auto;
+button {
+  &.save-btn {
     width: 150px;
     height: 50px;
+    margin: 30px auto;
     font-weight: 800;
-    background-color: #7da5b8;
-    border-color: #7da5b8;
-}
+    background-color: $light-blue;
+    border-color: $light-blue;
 
-button.save-btn:hover {
-    background-color: #007bff;
-    border-color: #007bff;
+    :hover {
+      background-color: $blue;
+      border-color: $blue;
+    }
+  }
 }
 
 .table-container {
-    max-width: auto;
-    margin: 0 10px;
+  max-width: auto;
+  margin: 0 10px;
 }
 
+.modal-header {
+  &.form-modal-header {
+    border-bottom: 0;
+  }
+}

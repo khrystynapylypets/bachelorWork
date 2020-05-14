@@ -1,19 +1,20 @@
 $right: right;
 $left: left;
+$grey: #495057;
 
-.right{
-    text-align: $right;
+.right {
+  text-align: $right;
 }
 
 .left {
-    text-align: $left;
+  text-align: $left;
 }
 
-input{
-    color: #495057;
+input {
+  color: $grey;
 }
 
-#modal-header{
-    border-bottom: none;
-    text-align: center;
+.modal-header {
+  text-align: center;
+  border-bottom: 0;
 }

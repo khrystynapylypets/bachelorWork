@@ -1,17 +1,16 @@
-import express from 'express'
-import path from 'path'
-import cors from 'cors'
+import express from 'express';
+import path from 'path';
+import cors from 'cors';
 import envConfig from './configs/env.config';
 import { connect } from './db/index';
 import routes from './routes';
-import { createAdmin } from './db/initDb';
-import { initSubjects } from './db/initDb';
+import { createAdmin, initSubjects } from './db/initDb';
 
 const app = express();
 
 app.use(cors({
   origin: envConfig.FRONT_DOMAIN,
-  exposedHeaders: ['access-token'],
+  exposedHeaders: [ 'access-token' ],
 }));
 
 connect();

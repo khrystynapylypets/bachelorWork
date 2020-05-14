@@ -1,54 +1,55 @@
-import React, { Component } from 'react'
-import { LogIn } from '../../components/LogIn'
-import { reduxForm } from 'redux-form'
-import { validate } from '../../utils/validation'
-import { connect } from 'react-redux'
-import { loginUser } from '../../store/actions'
-import { ErrorAlert } from '../../components/ErrorAlert'
+import React, { Component } from 'react';
+import { LogIn } from '../../components/LogIn';
+import { reduxForm } from 'redux-form';
+import { validate } from '../../utils/validation';
+import { connect } from 'react-redux';
+import { userActions } from '../../store/actions/userActions';
+import { ErrorAlert } from '../../components/ErrorAlert';
 
 
 class LogInContainer extends Component {
-
   handleOnSubmit = (user) => {
-    const { loginUser, reset } = this.props
-    console.log(this.props)
-    loginUser(user)
-    reset()
+    const { userActions, reset } = this.props;
+
+    userActions.loginUser(user);
+    reset();
   }
 
   render() {
-    const { handleSubmit, submitting, invalid, errorMessage } = this.props
+    const { handleSubmit, submitting, invalid, errorMessage } = this.props;
 
     return (
-        <>
-          {errorMessage.length > 0 &&
-          <ErrorAlert description={errorMessage} />
-          }
-          <LogIn
-            handleSubmit={handleSubmit}
-            onSubmit={this.handleOnSubmit}
-            invalid={invalid}
-            submitting={submitting}
-          />
-        </>
-    )
+      <>
+        {errorMessage
+          && <ErrorAlert description={errorMessage} />
+        }
+        <LogIn
+          handleSubmit={handleSubmit}
+          onSubmit={this.handleOnSubmit}
+          invalid={invalid}
+          submitting={submitting}
+        />
+      </>
+    );
   }
 }
 
-const mapDispatchToProps = {
-  loginUser,
+function mapDispatchToProps(dispatch) {
+  return {
+    userActions: userActions.bind(dispatch),
+  };
 }
 
 const mapStateToProps = ({ user }) => ({
   errorMessage: user.error,
-})
+});
 
 export default connect(
-    mapStateToProps,
+  mapStateToProps,
   mapDispatchToProps,
 )(
   reduxForm({
     form: 'login',
     validate,
   })(LogInContainer),
-)
+);

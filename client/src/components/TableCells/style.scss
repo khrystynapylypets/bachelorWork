@@ -1,129 +1,143 @@
-h6.subject{
-    border: 1px solid rgb(90, 75, 75);
-    margin-bottom: 2px;
-}
+$black: #000;
+$red: #ff0000;
+$light-red: #f13b3b;
+$green: #0c9200;
+$light-green: #4bb941;
+$blue: #0052aa;
+$border: rgb(90, 75, 75);
+$subject-button: #a4ccdf;
+$subject-button-hover: #bfebff;
 
-button.subject-button{
-    background-color: #a4ccdf;
-    border-color: #a4ccdf;
-    color: #000;
+button {
+  &.subject-button {
     width: 150px;
+    padding: 0 0 3px;
+    margin: 0 0 5px;
     font-size: 14px;
-    margin: 0 0 5px 0;
-    // margin-left: 14%;
-    padding: 0 0 3px 0;
-}
+    color: $black;
+    background-color: $subject-button;
+    border-color: $subject-button;
 
-.main-table2 button.subject-button{
+    &:hover,
+    &:focus {
+      color: $black;
+      background-color: $subject-button-hover;
+      border-color: $subject-button-hover;
+    }
+  }
+
+  &.add-subject {
     width: 150px;
-}
-
-.main-table button.subject-button{
-    width: 250px;
-}
-
-button.subject-button:hover, button.subject-button:focus{
-    background-color: #bfebff;
-    border-color: #bfebff;
-    color: #000;
-}
-
-button.add-subject{
-    font-size: 14px;
-    padding: 2px 0 5px 0;
-    width: 150px;
+    padding: 2px 0 5px;
     margin: 0;
-}
+    font-size: 14px;
 
-.main-table2 button.add-subject{
-    width: 150px;
-}
+    &:hover,
+    &:focus {
+      background-color: $blue;
+      border-color: $blue;
+    }
+  }
 
-.main-table button.add-subject{
-    width: 250px;
-}
+  &.save-button {
+    background-color: $green;
+    border-color: $green;
 
-button.add-subject:hover, button.add-subject:focus{
-    background-color: #0052aa;
-    border-color: #0052aa;
-}
+    &:focus {
+      background-color: $green;
+      border-color: $green;
+    }
 
-.subjects-type{
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 18px;
-    padding: 0 0 10px 0;
-}
+    &:hover {
+      background-color: $light-green;
+      border-color: $light-green;
+    }
 
-.select-name{
-    margin: 5px;
-}
+    &:not(:disabled) {
+      &:not(.disabled) {
+        &:active {
+          background-color: $green;
+          border-color: $green;
+        }
+      }
+    }
+  }
 
-button.delete-button{
-    background-color: #ff0000;
-    border-color: #ff0000;
-}
+  &.delete-button {
+    background-color: $red;
+    border-color: $red;
 
-button.delete-button:hover{
-    background-color: #f13b3b;
-    border-color: #f13b3b;
-}
+    &:focus {
+      background-color: $red;
+      border-color: $red;
+    }
 
-button.save-button{
-    background-color: #0c9200;
-    border-color: #0c9200;
-}
+    &:hover {
+      background-color: $light-red;
+      border-color: $light-red;
+    }
 
-button.save-button:hover{
-    background-color: #4bb941;
-    border-color: #4bb941;
-}
+    &:not(:disabled) {
+      &:not(.disabled) {
+        &:active {
+          background-color: $red;
+          border-color: $red;
+        }
+      }
+    }
+  }
 
-button.save-button:focus{
-    background-color: #0c9200;
-    border-color: #0c9200;
-}
-
-button.save-button:not(:disabled):not(.disabled):active{
-    background-color: #0c9200;
-    border-color: #0c9200;
-}
-
-button.delete-button:not(:disabled):not(.disabled):active{
-    background-color: #ff0000;
-    border-color: #ff0000;
-}
-
-button.delete-button:focus{
-    background-color: #ff0000;
-    border-color: #ff0000;
-}
-
-button.popup-button.save-button{
-    width: 60%;
-    margin: 5px 20%;
-}
-
-
-button.popup-button{
+  &.popup-button {
     width: 70%;
     margin: 5px 15%;
+
+    &.save-button {
+      width: 60%;
+      margin: 5px 20%;
+    }
+  }
 }
 
-button{
-    display: block;
+.main-table2 {
+  button {
+    &.subject-button {
+      width: 150px;
+    }
+
+    &.add-subject {
+      width: 150px;
+    }
+  }
 }
 
-.teachers-list label {
-    margin-left: 25px;
+.main-table {
+  button {
+    &.subject-button {
+      width: 250px;
+    }
+
+    &.add-subject {
+      width: 250px;
+    }
+  }
 }
 
-.teachers-list{
-    position: relative;
+.subjects-type {
+  padding: 0 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 18px;
 }
 
-.teachers-list input {
+.teachers-list {
+  position: relative;
 
+  input {
     position: absolute;
-    margin: 5px 0 0 10px;
+    margin: 5px 0 0 -105px;
+  }
+
+  label {
+    margin-left: 25px;
+  }
 }

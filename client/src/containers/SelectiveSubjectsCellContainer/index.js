@@ -4,14 +4,23 @@ import { subjectsActions } from '../../store/actions/subjectsActions';
 import { connect } from 'react-redux';
 
 class SelectiveSubjectsCellContainer extends Component {
-
   render() {
+    const { subjectsActions, subjects, semester, scheduleOfSemesters, schedule } = this.props;
+
     return (
       <>
-        <SubjectsCell name='Вибіркові дисципліни' getAllSubjects={this.props.subjectsActions.getSelectiveSubjects} subjects={this.props.subjects}
-          addSubject={this.props.subjectsActions.addSubject} semester={this.props.semester}
-          scheduleOfSemesters={this.props.scheduleOfSemesters} schedule={this.props.schedule} typeOfSubjects='selectiveSubjects'
-          addCoefficient={this.props.subjectsActions.addCoefficient} deleteSubject={this.props.deleteSubject} />
+        <SubjectsCell 
+          name='Вибіркові дисципліни'
+          getAllSubjects={subjectsActions.getSelectiveSubjects}
+          subjects={subjects}
+          addSubject={subjectsActions.addSubject}
+          semester={semester}
+          scheduleOfSemesters={scheduleOfSemesters}
+          schedule={schedule}
+          typeOfSubjects='selectiveSubjects'
+          addCoefficient={subjectsActions.addCoefficient}
+          deleteSubject={subjectsActions.deleteSubject}
+        />
       </>
     );
   }
@@ -27,7 +36,7 @@ const mapStateToProps = ({ subjects, schedule }) => ({
   subjects: subjects.selectiveSubjects,
   scheduleOfSemesters: schedule.semesters,
   schedule: schedule,
-})
+});
 
 export default connect(
   mapStateToProps,

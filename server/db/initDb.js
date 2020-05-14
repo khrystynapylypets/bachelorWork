@@ -16,7 +16,6 @@ export const createAdmin = async () => {
 };
 
 export const initSubjects = async () => {
-
   for (const element of sub.subjects) {
     try {
       let subjects = await initSubjectsModel(element);
