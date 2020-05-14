@@ -4,7 +4,7 @@ import cors from 'cors';
 import envConfig from './configs/env.config';
 import { connect } from './db/index';
 import routes from './routes';
-import { createAdmin } from './db/initDb';
+import { createAdmin, initSubjects } from './db/initDb';
 
 const app = express();
 
@@ -16,6 +16,8 @@ app.use(cors({
 connect();
 
 createAdmin();
+
+initSubjects();
 
 app.listen(envConfig.PORT, () => (
   console.error(`Node listening on port ${envConfig.PORT}`)

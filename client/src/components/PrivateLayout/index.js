@@ -1,5 +1,5 @@
 import React from 'react';
-import LogOut from '../../containers/LogOutContainer';
+// import LogOut from '../../containers/LogOutContainer';
 import {
   Container,
   Row,
@@ -28,7 +28,7 @@ export const PrivateLayout = ({ children }) => (
           <Nav className='navigation'>
             <Link to='/home'>Home</Link>
             <Link to='/profile'>Мій профіль</Link>
-            <LogOut />
+            {/* <LogOut /> */}
           </Nav>
         </Navbar>
       </Col>
