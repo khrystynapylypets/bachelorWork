@@ -47,12 +47,6 @@ rules:
   no-warn: 2
   property-units: 0
 
-  # Nesting
-  declarations-before-nesting: 2
-  force-attribute-nesting: 2
-  force-element-nesting: 2
-  force-pseudo-nesting: 2
-
   # Name Formats
   class-name-format: 0
   function-name-format: 2
@@ -74,7 +68,6 @@ rules:
   leading-zero: 2
   max-line-length: 0
   max-file-line-count: 0
-  nesting-depth: 2
   property-sort-order:
     - 2
     - order: recess

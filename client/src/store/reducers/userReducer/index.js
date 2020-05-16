@@ -1,7 +1,6 @@
 import { userActions } from '../../actions/userActions';
 
-
-const initState = {
+const initialState = {
   id: null,
   email: '',
   firstName: '',
@@ -16,30 +15,32 @@ const initState = {
   loading: true,
 };
 
-export const userReducer = (prevState = initState, action) => {
+export const userReducer = (prevState = initialState, action) => {
+  const { types } = userActions;
+
   switch (action.type) {
-    case userActions.types.REGISTER_SUCCESS:
+    case types.REGISTER_SUCCESS:
       return {
         ...prevState,
         error: null,
       };
-    case userActions.types.REGISTER_FAIL:
+    case types.REGISTER_FAIL:
       return {
         ...prevState,
         error: action.error,
       };
-    case userActions.types.LOGIN_SUCCESS:
+    case types.LOGIN_SUCCESS:
       return {
         ...prevState,
         loading: false,
         error: '',
       };
-    case userActions.types.LOGIN_FAIL:
+    case types.LOGIN_FAIL:
       return {
         ...prevState,
         error: action.error,
       };
-    case userActions.types.INIT:
+    case types.INIT:
       return {
         ...prevState,
         id: action.userData.id,
@@ -47,17 +48,17 @@ export const userReducer = (prevState = initState, action) => {
         loading: false,
         error: null,
       };
-    case userActions.types.LOGOUT_SUCCESS:
+    case types.LOGOUT_SUCCESS:
       return {
-        ...initState,
+        ...initialState,
       };
-    case userActions.types.GET_USER_DATA_LOADING:
+    case types.GET_USER_DATA_LOADING:
       return {
         ...prevState,
         loading: true,
         error: null,
       };
-    case userActions.types.GET_USER_DATA_SUCCESS:
+    case types.GET_USER_DATA_SUCCESS:
       return {
         ...prevState,
         id: action.userData.id,
@@ -72,7 +73,7 @@ export const userReducer = (prevState = initState, action) => {
         phoneNumber: action.userData.phoneNumber,
         loading: false,
       };
-    case userActions.types.GET_USER_DATA_FAIL:
+    case types.GET_USER_DATA_FAIL:
       return {
         ...prevState,
         loading: false,

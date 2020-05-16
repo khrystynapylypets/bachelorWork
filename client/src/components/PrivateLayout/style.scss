@@ -5,7 +5,6 @@
     position: fixed;
     z-index: 2;
     padding: 0;
-    box-shadow: 0 10px 10px -7px $grey;
   }
 
   .main {
@@ -16,14 +15,24 @@
     justify-content: space-between;
     width: 100%;
     padding: 10px 30px;
-    background: $white;
+    background: $lavender;
 
     .navigation {
       align-items: center;
+      margin: 0 auto;
 
       a {
         display: block;
         margin-right: 15px;
+
+        &:hover {
+          font-weight: bold;
+          text-decoration: none;
+        }
+      }
+
+      .is-active {
+        font-weight: bold;
       }
     }
   }

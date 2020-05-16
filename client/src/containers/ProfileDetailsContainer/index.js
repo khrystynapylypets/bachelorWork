@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { ProfileDetails } from '../../components/ProfileDetails';
+import { ProfileDetails } from '../../components/ProfilePage/ProfileDetails';
 import { formatDate } from '../../helpers/generalFunctions';
 import { userActions } from '../../store/actions/userActions';
 

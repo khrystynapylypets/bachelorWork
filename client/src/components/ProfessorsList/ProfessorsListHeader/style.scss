@@ -1,0 +1,89 @@
+@import '../../../styles/variables';
+
+.list-header {
+  margin-bottom: 25px;
+
+  .accordion {
+    margin-bottom: 20px;
+  }
+
+  .sort {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .dropdown {
+    display: inline-block;
+    margin: 0 10px;
+    border-color: $primary;
+    border-radius: 0;
+
+    button {
+      font-size: 14px;
+
+      &:hover {
+        background: $primary-hover;
+      }
+    }
+  }
+
+  .professors-count {
+    margin: 15px 0;
+
+    span {
+      background-color: $primary;
+    }
+  }
+
+  .card {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .search-panel {
+    padding: 0;
+
+    .row {
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    .form-control {
+      height: 100%;
+      border-color: $primary-hover;
+      border-radius: 0;
+    }
+
+    button {
+      width: 100%;
+      background-color: $primary-hover;
+      border-color: $primary-hover;
+      border-radius: 0;
+    }
+  }
+
+  .additional-filters {
+    background-color: $primary-hover;
+
+    label {
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+
+    input {
+      width: auto;
+      border-radius: 0;
+    }
+
+    button {
+      display: block;
+      margin-left: auto;
+
+      &:hover {
+        background: $primary;
+        opacity: .7;
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { watchRegisterUser } from './watchRegisterSaga';
 import { watchLogoutUser } from './watchLogoutSaga';
 import { watchLoginUser } from './watchLoginSaga';
 import { watchGetUserData } from './watchUserSaga';
+import { watchQueryProfessors } from './watchProfessorsSaga';
 
 export default function* rootSaga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     watchLogoutUser(),
     watchLoginUser(),
     watchGetUserData(),
+    watchQueryProfessors(),
   ]);
 }

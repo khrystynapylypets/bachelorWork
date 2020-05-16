@@ -2,9 +2,80 @@
 
 body {
   color: $mine-shaft;
-  background: $body-back;
+  background: $white;
 
-  // sass-lint:disable nesting-depth
+  &.profile {
+    background: $lavender;
+
+    .private-layout {
+      .navbar {
+        background: $white;
+      }
+    }
+  }
+
+  * {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .btn-primary,
+  .dropdown-toggle {
+    background-color: $primary;
+    border-color: $primary;
+
+    &:hover,
+    &:focus {
+      background-color: $primary-hover;
+      border-color: $primary-hover;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &:not(:disabled) {
+      &:not(.disabled) {
+        &:active {
+          background-color: $primary-hover;
+          border-color: $primary-hover;
+        }
+      }
+    }
+  }
+
+  .btn-outline-primary {
+    color: $primary;
+    border-color: $primary;
+
+    &:hover,
+    &:disabled,
+    &:active,
+    &:focus {
+      color: $white;
+      background-color: $primary-hover;
+      border-color: $primary-hover;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+
+
+  a {
+    color: $primary;
+
+    &:hover {
+      color: $primary-hover;
+      text-decoration: none;
+    }
+  }
+
   // sass-lint:disable no-ids
   #popover-email,
   #popover-phone {
@@ -25,5 +96,15 @@ body {
         color: $mine-shaft;
       }
     }
+  }
+
+  // sass-lint:disable no-important
+  .spinner-border {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    color: $primary !important;
   }
 }

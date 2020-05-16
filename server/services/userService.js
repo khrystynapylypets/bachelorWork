@@ -1,8 +1,7 @@
 import User from '../db/models/User';
 import { hashPassword, comparePassword } from '../helpers/hashPassword';
 
-export const createUserModel = async
-  ({ email, password, firstName, secondName, lastName, dateWork, academicStatus, dateBirth, isAdmin, phoneNumber }) => {
+export const createUserModel = async ({ email, password, firstName, secondName, lastName, dateWork, academicStatus, dateBirth, isAdmin, phoneNumber }) => {
   let user = await User.findOne({
     $or: [ { 'email': email } ],
   });

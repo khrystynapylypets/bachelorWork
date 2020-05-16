@@ -10,5 +10,175 @@
     "dateBirth": "1970-1-9",
     "isAdmin": true,
     "phoneNumber": "380632580762"
-  }
+  },
+  "initialUsers": [
+    {
+      "email": "test2@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Оксана",
+      "secondName": "Іванівна",
+      "lastName": "Пилипець",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test3@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Юрій",
+      "secondName": "Вікторович",
+      "lastName": "Цимбал",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test4@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Зореслава",
+      "secondName": "Ярославівна",
+      "lastName": "Шпак",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test5@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Олена",
+      "secondName": "Іванівна",
+      "lastName": "Лиса",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test6@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Анастасія",
+      "secondName": "Іванівна",
+      "lastName": "Дорошенко",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test7@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Наталя",
+      "secondName": "Іванівна",
+      "lastName": "Пилипець",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test8@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Олеся",
+      "secondName": "Іванівна",
+      "lastName": "Пилипець",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test9@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Христина",
+      "secondName": "Іванівна",
+      "lastName": "Пилипець",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test10@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Христина",
+      "secondName": "Іванівна",
+      "lastName": "Пилипець",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test11@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Христина",
+      "secondName": "Іванівна",
+      "lastName": "Пилипець",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test12@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Христина",
+      "secondName": "Іванівна",
+      "lastName": "Пилипець",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test13@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Христина",
+      "secondName": "Іванівна",
+      "lastName": "Пилипець",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test14@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Христина",
+      "secondName": "Іванівна",
+      "lastName": "Пилипець",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    },
+    {
+      "email": "test15@gmail.com",
+      "password": "Admin123@",
+      "firstName": "Христина",
+      "secondName": "Іванівна",
+      "lastName": "Пилипець",
+      "dateWork": "1995-11-17",
+      "academicStatus": "доктор",
+      "dateBirth": "1970-1-9",
+      "isAdmin": false,
+      "phoneNumber": "380632580762"
+    }
+  ]
 }

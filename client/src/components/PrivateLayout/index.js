@@ -6,11 +6,8 @@ import {
   Col,
   Navbar,
   Nav,
-  FormControl,
-  Button,
-  Form,
 } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './style.scss';
 
 export const PrivateLayout = ({ children }) => (
@@ -18,18 +15,12 @@ export const PrivateLayout = ({ children }) => (
     <Row>
       <Col md={12} className='header'>
         <Navbar>
-          <Form inline className='search-form'>
-            <FormControl
-              type='text' placeholder='Search'
-              className='search'
-            />
-            <Button variant='outline-primary'>Пошук</Button>
-          </Form>
           <Nav className='navigation'>
-            <Link to='/home'>Home</Link>
-            <Link to='/profile'>Мій профіль</Link>
-            <LogOut />
+            <NavLink activeClassName='is-active' to='/home'>Home</NavLink>
+            <NavLink activeClassName='is-active' to='/profile'>Мій профіль</NavLink>
+            <NavLink activeClassName='is-active' to='/list'>Список викладачів</NavLink>
           </Nav>
+          <LogOut />
         </Navbar>
       </Col>
       <Col md={12} className='main'>
