@@ -16,7 +16,7 @@ app.use(cors({
 connect();
 
 createAdmin();
-// createUsers();
+createUsers();
 
 app.listen(envConfig.PORT, () => (
   console.error(`Node listening on port ${envConfig.PORT}`)

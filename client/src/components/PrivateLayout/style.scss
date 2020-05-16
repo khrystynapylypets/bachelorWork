@@ -18,8 +18,8 @@
     background: $lavender;
 
     .navigation {
-      margin: 0 auto;
       align-items: center;
+      margin: 0 auto;
 
       a {
         display: block;
@@ -27,8 +27,8 @@
 
         &:hover {
           font-weight: bold;
-         text-decoration: none;
-       }
+          text-decoration: none;
+        }
       }
 
       .is-active {

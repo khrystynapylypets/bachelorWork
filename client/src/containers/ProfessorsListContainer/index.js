@@ -8,6 +8,8 @@ const mapStateToProps = (state) => ({
   filter: state.professors.filter,
   count: state.professors.count,
   error: state.professors.error,
+  sortKey: state.professors.sortKey,
+  sortOptions: state.professors.sortOptions,
 });
 
 function mapDispatchToProps(dispatch) {

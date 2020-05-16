@@ -10,7 +10,7 @@ import {
   Col,
   Container,
 } from 'react-bootstrap';
-import { applyFilter } from '../../helpers/generalFunctions';
+import { applyFilter, applySort, formatDate } from '../../helpers/generalFunctions';
 import { ProfessorsListHeader } from './ProfessorsListHeader';
 import { PrivateLayout } from '../PrivateLayout';
 import './style.scss';
@@ -23,8 +23,8 @@ export class ProfessorsList extends Component {
   }
 
   render() {
-    const { isQuerying, list, professorsActions, filter } = this.props;
-    const { updateFilter, clearFilters } = professorsActions;
+    const { isQuerying, list, professorsActions, filter, sortKey, sortOptions } = this.props;
+    const { updateFilter, clearFilters, sortList } = professorsActions;
 
 
     if (isQuerying) {
@@ -32,17 +32,19 @@ export class ProfessorsList extends Component {
     }
 
     const filteredList = applyFilter(list, filter);
+    const sortedList = applySort(filteredList, sortKey);
     const professorsCount = filteredList.length;
 
     const professorsList = !_.isEmpty(filteredList)
       ? (
         <Accordion defaultActiveKey='0'>
           {
-            filteredList.map((professor, index) => {
-              const { firstName, secondName, lastName, academicStatus, phoneNumber, email } = professor;
+            sortedList.map((professor, index) => {
+              const { firstName, secondName, lastName, academicStatus, phoneNumber, email, created, id } = professor;
+              const formattedDate = formatDate(created);
 
               return (
-                <Card>
+                <Card key={id}>
                   <Card.Header>
                     <Accordion.Toggle
                       as={Button} variant='link'
@@ -53,14 +55,17 @@ export class ProfessorsList extends Component {
                   </Card.Header>
                   <Accordion.Collapse eventKey={index}>
                     <Card.Body>
-                      { academicStatus &&
-                        <p><span>Академічний статус:</span> {academicStatus}</p>
+                      { academicStatus
+                      && <p><span>Академічний статус:</span> {academicStatus}</p>
                       }
-                      { phoneNumber &&
-                        <p><span>Номер телефону:</span> {phoneNumber}</p>
+                      { phoneNumber
+                      && <p><span>Номер телефону:</span> {phoneNumber}</p>
                       }
-                      { email &&
-                        <p><span>Електронна пошта:</span> {email}</p>
+                      { email
+                      && <p><span>Електронна пошта:</span> {email}</p>
+                      }
+                      { created
+                      && <p><span>Профіль створено:</span> {formattedDate}</p>
                       }
                       <Link to='/profile'>Перейти до особистого профілю</Link>
                     </Card.Body>
@@ -83,6 +88,9 @@ export class ProfessorsList extends Component {
                 clearFilters={clearFilters}
                 filter={filter}
                 professorsCount={professorsCount}
+                sortKey={sortKey}
+                sortList={sortList}
+                sortOptions={sortOptions}
               />
             </Col>
             <Col className='list' md={12}>

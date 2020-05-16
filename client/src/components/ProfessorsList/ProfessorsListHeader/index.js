@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash';
 import {
   FormControl,
@@ -13,11 +13,11 @@ import {
   DropdownButton,
   Badge,
 } from 'react-bootstrap';
-import {useAccordionToggle} from 'react-bootstrap/AccordionToggle'
-import {UPDATE_FILTER_DELAY} from '../../../utils/constants';
+import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
+import { UPDATE_FILTER_DELAY } from '../../../utils/constants';
 import './style.scss';
 
-function CustomToggle({children, eventKey}) {
+function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionToggle(eventKey);
 
   return (
@@ -30,7 +30,8 @@ function CustomToggle({children, eventKey}) {
 }
 
 function filterIsEmpty(filter) {
-  const {text, email, phone, academicStatus} = filter;
+  const { text, email, phone, academicStatus } = filter;
+
   return _.isEmpty(text) && _.isEmpty(email) && _.isEmpty(phone) && _.isEmpty(academicStatus);
 }
 
@@ -38,7 +39,7 @@ export class ProfessorsListHeader extends Component {
   constructor(props) {
     super(props);
 
-    const {filter} = this.props;
+    const { filter } = this.props;
 
     this.state = {
       text: filter.text || '',
@@ -50,7 +51,7 @@ export class ProfessorsListHeader extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.filter.lastModified !== prevState.lastModified) {
-      const {filter} = nextProps;
+      const { filter } = nextProps;
 
       return {
         text: filter.text || '',
@@ -65,11 +66,12 @@ export class ProfessorsListHeader extends Component {
 
   componentWillUnmount() {
     this.handleClearFilters();
+    this.handleSort('name');
   }
 
   handleTextChange = (e) => {
     const text = e.target.value;
-    const {updateFilter} = this.props;
+    const { updateFilter } = this.props;
 
     clearTimeout(this.timeoutId);
 
@@ -83,12 +85,12 @@ export class ProfessorsListHeader extends Component {
 
     this.setState({
       text,
-    })
+    });
   };
 
   handleEmailFilterChange = (e) => {
     const email = e.target.value;
-    const {updateFilter} = this.props;
+    const { updateFilter } = this.props;
 
     clearTimeout(this.timeoutId);
 
@@ -102,12 +104,12 @@ export class ProfessorsListHeader extends Component {
 
     this.setState({
       email,
-    })
+    });
   };
 
   handlePhoneFilterChange = (e) => {
     const phone = e.target.value;
-    const {updateFilter} = this.props;
+    const { updateFilter } = this.props;
 
     clearTimeout(this.timeoutId);
 
@@ -121,20 +123,43 @@ export class ProfessorsListHeader extends Component {
 
     this.setState({
       phone,
-    })
+    });
   };
 
   handleClearFilters = () => {
-    const {clearFilters} = this.props;
+    const { clearFilters } = this.props;
 
     clearFilters();
   };
 
+  handleSort = (eventKey) => {
+    const { sortList } = this.props;
+
+    sortList(eventKey);
+  };
+
 
   render() {
-    const {filter, professorsCount} = this.props;
-    const {text, email, phone} = this.state;
+    const { filter, professorsCount, sortKey, sortOptions } = this.props;
+    const { text, email, phone } = this.state;
     const disableButton = filterIsEmpty(filter);
+
+    const dropdownItems = Object.entries(sortOptions).map(
+      (item) => {
+        const [ key, value ] = item;
+
+        return (
+          <Dropdown.Item
+            as='button'
+            eventKey={key}
+            key={key}
+          >
+            {value}
+          </Dropdown.Item>
+        );
+      },
+    );
+
     return (
       <div className='list-header'>
         <Accordion defaultActiveKey='0'>
@@ -162,7 +187,7 @@ export class ProfessorsListHeader extends Component {
                     <Col md={3}>
                       <Form.Label className='form-label'>Фільтр за електронною поштою</Form.Label>
                       <FormControl
-                        placeholder="Електронна пошта"
+                        placeholder='Електронна пошта'
                         onChange={this.handleEmailFilterChange}
                         value={email}
                       />
@@ -170,7 +195,7 @@ export class ProfessorsListHeader extends Component {
                     <Col md={3}>
                       <Form.Label className='form-label'>Фільтр за номером телефону</Form.Label>
                       <FormControl
-                        placeholder="Номер телефону"
+                        placeholder='Номер телефону'
                         onChange={this.handlePhoneFilterChange}
                         value={phone}
                       />
@@ -180,22 +205,28 @@ export class ProfessorsListHeader extends Component {
                 <Button
                   onClick={this.handleClearFilters}
                   disable={disableButton}
-                >Очистити фільтр</Button>
+                >
+                  Очистити фільтр
+                </Button>
               </Card.Body>
             </Accordion.Collapse>
           </Card>
         </Accordion>
         <Container>
           <Row>
-            <Col md={10}>
-            <div className='professors-count'>Кількість викладачів: <Badge>{professorsCount}</Badge></div>
+            <Col md={7}>
+              <div className='professors-count'>Кількість викладачів: <Badge>{professorsCount}</Badge></div>
             </Col>
-            <Col md={2}>
-              <DropdownButton title='Сортувати за'>
-                <Dropdown.Item as='button'>Алфавітом</Dropdown.Item>
-                <Dropdown.Item as='button'>Останніми створеними</Dropdown.Item>
-                <Dropdown.Item as='button'>Першими створеними</Dropdown.Item>
-              </DropdownButton>
+            <Col md={5}>
+              <div className='sort'>
+                Сортувати за:
+                <DropdownButton
+                  title={sortOptions[sortKey]}
+                  onSelect={this.handleSort}
+                >
+                  {dropdownItems}
+                </DropdownButton>
+              </div>
             </Col>
           </Row>
         </Container>

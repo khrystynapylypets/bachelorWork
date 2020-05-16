@@ -7,7 +7,15 @@
     margin-bottom: 20px;
   }
 
+  .sort {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
   .dropdown {
+    display: inline-block;
+    margin: 0 10px;
     border-color: $primary;
     border-radius: 0;
 
@@ -35,6 +43,7 @@
 
   .search-panel {
     padding: 0;
+
     .row {
       margin-right: -15px;
       margin-left: -15px;
@@ -42,15 +51,15 @@
 
     .form-control {
       height: 100%;
-      border-radius: 0;
       border-color: $primary-hover;
+      border-radius: 0;
     }
 
     button {
       width: 100%;
-      border-radius: 0;
       background-color: $primary-hover;
       border-color: $primary-hover;
+      border-radius: 0;
     }
   }
 
@@ -58,8 +67,8 @@
     background-color: $primary-hover;
 
     label {
-      font-size: 12px;
       margin-bottom: 5px;
+      font-size: 12px;
     }
 
     input {

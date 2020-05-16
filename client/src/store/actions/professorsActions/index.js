@@ -39,9 +39,9 @@ const updateFilter = (path, value) => ({
   lastModified: Date.now(),
 });
 
-const sortList = (sortOption) => ({
+const sortList = (sortKeyOption) => ({
   type: types.SORT_PROFESSORS,
-  sortOption,
+  sortKeyOption,
 });
 
 export const professorsActions = {

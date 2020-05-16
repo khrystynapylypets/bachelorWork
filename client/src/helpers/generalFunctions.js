@@ -30,7 +30,7 @@ export const applyFilter = (list, filter) => {
       return;
     }
 
-    if (_.isEmpty(phoneNumber) || filter.phone && phoneNumber.indexOf(filter.phone) === -1) {
+    if (_.isEmpty(phoneNumber) || (filter.phone && phoneNumber.indexOf(filter.phone) === -1)) {
       return;
     }
 
@@ -40,4 +40,35 @@ export const applyFilter = (list, filter) => {
   console.log(resultArray);
   _.remove(resultArray, (item) => item === undefined);
   return resultArray;
+};
+
+export const applySort = (list, sortKey) => {
+  switch (sortKey) {
+    case 'name': {
+      return list.sort((a, b) => {
+        const fullName1 = a.firstName + a.secondName + a.lastName;
+        const fullName2 = b.firstName + b.secondName + b.lastName;
+
+        return fullName1.localeCompare(fullName2);
+      });
+    }
+    case 'lastCreated': {
+      return list.sort((a, b) => {
+        const created1 = new Date(a.created);
+        const created2 = new Date(b.created);
+
+        return created1 < created2;
+      }).reverse();
+    }
+    case 'firstCreated': {
+      return list.sort((a, b) => {
+        const created1 = new Date(a.created);
+        const created2 = new Date(b.created);
+
+        return created1 < created2;
+      });
+    }
+    default:
+      return list;
+  }
 };

@@ -11,6 +11,13 @@ const initialState = {
     phone: null,
     lastModified: null,
   },
+  sortOptions: {
+    name: 'Алфавітом',
+    lastCreated: 'Останніми створеними',
+    firstCreated: 'Першими створеними',
+  },
+  sortKey: 'name',
+
   count: 0,
   error: '',
 };
@@ -53,6 +60,11 @@ export function professorsReducer(prevState = initialState, action) {
           ..._.set(_.cloneDeep(prevState.filter), action.path, action.value),
           lastModified: action.lastModified,
         },
+      };
+    case types.SORT_PROFESSORS:
+      return {
+        ...prevState,
+        sortKey: action.sortKeyOption,
       };
     default:
       return prevState;
