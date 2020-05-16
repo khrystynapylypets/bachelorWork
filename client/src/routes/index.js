@@ -9,6 +9,7 @@ import ForgotPasswordContainer from '../containers/ForgotPasswordContainer';
 import { NotFound } from '../components/NotFound';
 import { HomePage } from '../components/HomePage';
 import ProfilePageContainer from '../containers/ProfilePageContainer';
+import ProfessorsListContainer from '../containers/ProfessorsListContainer';
 
 export const routes = (
   <Router history={history}>
@@ -18,6 +19,7 @@ export const routes = (
       <PublicRoute path='/forgot-password' component={ForgotPasswordContainer} />
       <PrivateRoute path='/home' component={HomePage} />
       <PrivateRoute path='/profile' component={ProfilePageContainer} />
+      <PrivateRoute path='/list' component={ProfessorsListContainer} />
       <Route path='*' component={NotFound} />
     </Switch>
   </Router>

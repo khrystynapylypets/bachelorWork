@@ -2,7 +2,79 @@
 
 body {
   color: $mine-shaft;
-  background: $body-back;
+  background: $white;
+
+  &.profile {
+    background: $lavender;
+
+    .private-layout {
+      .navbar {
+        background: $white;
+      }
+    }
+  }
+
+  * {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .btn-primary,
+  .dropdown-toggle {
+    background-color: $primary;
+    border-color: $primary;
+
+    &:hover,
+    &:focus {
+      background-color: $primary-hover;
+      border-color: $primary-hover;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &:not(:disabled) {
+      &:not(.disabled) {
+        &:active {
+          background-color: $primary-hover;
+          border-color: $primary-hover;
+        }
+      }
+    }
+  }
+
+  .btn-outline-primary {
+    color: $primary;
+    border-color: $primary;
+
+    &:hover,
+    &:disabled,
+    &:active,
+    &:focus {
+      color: $white;
+      border-color: $primary-hover;
+      background-color: $primary-hover;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+
+
+  a {
+    color: $primary;
+
+    &:hover {
+      color: $primary-hover;
+      text-decoration: none;
+    }
+  }
 
   // sass-lint:disable nesting-depth
   // sass-lint:disable no-ids
@@ -25,5 +97,14 @@ body {
         color: $mine-shaft;
       }
     }
+  }
+
+  .spinner-border {
+    color: $primary !important;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
   }
 }

@@ -18,7 +18,7 @@ export const Registration = ({ handleSubmit, onSubmit, invalid, submitting }) =>
   <PublicLayout>
     <form onSubmit={handleSubmit(onSubmit)} className='registration-form form'>
       <Container>
-        <h3 className='title'>Зареєструватись</h3>
+        <h3 className='title'>Реєстрація</h3>
         <Row>
           <Col md={{ offset: 4 }} className='login-block'>
                         Вже маєте акаунт?

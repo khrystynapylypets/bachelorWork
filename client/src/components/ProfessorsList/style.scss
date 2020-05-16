@@ -3,23 +3,53 @@
 .professors-list {
   padding: 40px 0;
 
-  .card {
-    margin-bottom: 20px;
+  .list {
+    .card {
+      margin-bottom: 20px;
+      border: 0;
+      border-radius: 0;
 
-    .btn {
-      display: block;
-      width: 100%;
-      text-align: left;
-      text-decoration: none;
-
-      &:hover {
+      .btn {
+        display: block;
+        width: 100%;
+        color: $primary;
+        text-align: left;
         text-decoration: none;
+
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
 
-    p {
+    .card-body {
+      position: relative;
+      background: $white;
+      border: 2px solid $lavender;
+
+      p,
+      a {
+        font-size: 14px;
+      }
+
       span {
         font-weight: bold;
+      }
+
+      a {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: block;
+      }
+    }
+
+    .card-header {
+      border:0 ;
+      background: $lavender;
+
+      button {
+        padding: 0;
       }
     }
   }

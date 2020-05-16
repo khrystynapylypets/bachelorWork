@@ -6,13 +6,16 @@ $black-15: rgba(0, 0, 0, .15);
 $rgb1: rgb(0, 93, 186);
 $rgb2: rgb(11, 119, 227);
 
-$main-color: linear-gradient($rgb1, $rgb2);
+$primary: #4682b4;
+$primary-hover: #b0c4de;
+$main-color: $primary;
 $white: #ffffff;
 $red: #ff0000;
 $body-back: #e9ecef;
 $grey: #dcdcdc;
 $black: #000000;
 $mine-shaft: #333333;
+$lavender: #e6e6fa;
 
 $mobile: 767px;
 $tablet-max: 992px;

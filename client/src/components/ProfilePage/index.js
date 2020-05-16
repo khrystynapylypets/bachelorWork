@@ -9,6 +9,13 @@ import {
 import './style.scss';
 
 export class ProfilePage extends Component {
+  componentWillMount() {
+    document.body.classList.add('profile');
+  }
+
+  componentWillUnmount() {
+    document.body.classList.remove('profile');
+  }
   render() {
     const { userId } = this.props;
 
