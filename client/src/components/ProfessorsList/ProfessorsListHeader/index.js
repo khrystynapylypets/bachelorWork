@@ -204,7 +204,7 @@ export class ProfessorsListHeader extends Component {
                 </Container>
                 <Button
                   onClick={this.handleClearFilters}
-                  disable={disableButton}
+                  disable={disableButton.toString()}
                 >
                   Очистити фільтр
                 </Button>

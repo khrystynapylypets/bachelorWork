@@ -9,7 +9,13 @@ import {
 import './style.scss';
 
 export class ProfilePage extends Component {
+
+
   componentWillMount() {
+    document.body.classList.add('profile');
+  }
+
+  componentDidMount() {
     document.body.classList.add('profile');
   }
 

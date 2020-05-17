@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
   error: state.professors.error,
   sortKey: state.professors.sortKey,
   sortOptions: state.professors.sortOptions,
+  isAdmin: state.user.currentUser.isAdmin,
 });
 
 function mapDispatchToProps(dispatch) {

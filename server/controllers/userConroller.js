@@ -33,6 +33,7 @@ export const createUser = async (req, res) => {
           dateBirth: newUser.dateBirth,
           phoneNumber: newUser.phoneNumber,
           created: newUser.created,
+          canCreateSchedule: newUser.canCreateSchedule,
         },
         message: 'The user is successfully registered.',
       });
@@ -69,6 +70,7 @@ export const loginUser = async (req, res) => {
           isAdmin: user.isAdmin,
           phoneNumber: user.phoneNumber,
           created: user.created,
+          canCreateSchedule: user.canCreateSchedule,
         },
         message: 'The user is successfully authorized.',
       });
@@ -94,6 +96,7 @@ export const getAllUsers = async (req, res) => {
       isAdmin: user.isAdmin,
       phoneNumber: user.phoneNumber,
       created: user.created,
+      canCreateSchedule: user.canCreateSchedule,
     }));
 
     return res
@@ -129,6 +132,7 @@ export const getUser = async (req, res) => {
           isAdmin: user.isAdmin,
           phoneNumber: user.phoneNumber,
           created: user.created,
+          canCreateSchedule: user.canCreateSchedule,
         },
         message: 'You successfully get user!',
       });

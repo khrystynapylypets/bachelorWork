@@ -3,16 +3,19 @@ import { ProfileDetails } from '../../components/ProfilePage/ProfileDetails';
 import { formatDate } from '../../helpers/generalFunctions';
 import { userActions } from '../../store/actions/userActions';
 
-const mapStateToProps = (state) => ({
-  loading: state.user.loading,
-  email: state.user.email,
-  firstName: state.user.firstName,
-  secondName: state.user.secondName,
-  lastName: state.user.lastName,
-  dateWork: formatDate(state.user.dateWork),
-  academicStatus: state.user.academicStatus,
-  dateBirth: formatDate(state.user.dateBirth),
-  phoneNumber: state.user.phoneNumber,
+const mapStateToProps = ({user}) => ({
+  loading: user.selectedUser.loading,
+  email: user.selectedUser.email,
+  firstName: user.selectedUser.firstName,
+  secondName: user.selectedUser.secondName,
+  lastName: user.selectedUser.lastName,
+  dateWork: formatDate(user.selectedUser.dateWork),
+  academicStatus: user.selectedUser.academicStatus,
+  dateBirth: formatDate(user.selectedUser.dateBirth),
+  phoneNumber: user.selectedUser.phoneNumber,
+  canCreateSchedule: user.selectedUser.canCreateSchedule,
+  created: user.selectedUser.created,
+  isAdmin: user.selectedUser.isAdmin,
 });
 
 function mapDispatchToProps(dispatch) {

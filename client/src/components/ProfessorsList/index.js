@@ -9,6 +9,7 @@ import {
   Button,
   Col,
   Container,
+  Form,
 } from 'react-bootstrap';
 import { applyFilter, applySort, formatDate } from '../../helpers/generalFunctions';
 import { ProfessorsListHeader } from './ProfessorsListHeader';
@@ -23,7 +24,7 @@ export class ProfessorsList extends Component {
   }
 
   render() {
-    const { isQuerying, list, professorsActions, filter, sortKey, sortOptions } = this.props;
+    const { isQuerying, list, professorsActions, filter, sortKey, sortOptions, isAdmin } = this.props;
     const { updateFilter, clearFilters, sortList } = professorsActions;
 
 
@@ -42,6 +43,16 @@ export class ProfessorsList extends Component {
             sortedList.map((professor, index) => {
               const { firstName, secondName, lastName, academicStatus, phoneNumber, email, created, id } = professor;
               const formattedDate = formatDate(created);
+
+              const addAdditionalRights = isAdmin ? (
+                <Form>
+                  <Form.Check
+                    id={id}
+                    type='switch'
+                    label='Створювати розклад'
+                  />
+                </Form>
+              ) : null;
 
               return (
                 <Card key={id}>
@@ -67,7 +78,10 @@ export class ProfessorsList extends Component {
                       { created
                       && <p><span>Профіль створено:</span> {formattedDate}</p>
                       }
-                      <Link to='/profile'>Перейти до особистого профілю</Link>
+                      <div className='links'>
+                        <Link to={`/profile/${id}`}> Перейти до особистого профілю</Link>
+                        {addAdditionalRights}
+                      </div>
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
