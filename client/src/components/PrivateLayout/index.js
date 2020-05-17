@@ -17,7 +17,7 @@ export const PrivateLayout = ({ children }) => (
         <Navbar>
           <Nav className='navigation'>
             <NavLink activeClassName='is-active' to='/home'>Home</NavLink>
-            <NavLink activeClassName='is-active' to='/profile'>Мій профіль</NavLink>
+            <NavLink activeClassName='is-active' to='/profile' exact>Мій профіль</NavLink>
             <NavLink activeClassName='is-active' to='/list'>Список викладачів</NavLink>
           </Nav>
           <LogOut />

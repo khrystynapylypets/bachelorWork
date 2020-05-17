@@ -8,6 +8,8 @@ import {
   Table,
   OverlayTrigger,
   Popover,
+  ButtonGroup,
+  Button,
 } from 'react-bootstrap';
 import { AiOutlinePhone, AiOutlineMail } from 'react-icons/ai';
 import './style.scss';
@@ -21,7 +23,8 @@ export class ProfileDetails extends Component {
 
   render() {
     const {
-      loading, email, firstName, secondName, lastName, dateWork, academicStatus, dateBirth, phoneNumber,
+      loading, email, firstName, secondName, lastName, dateWork, academicStatus, dateBirth, phoneNumber, isAdmin,
+      canCreateSchedule,
     } = this.props;
 
     if (loading) {
@@ -44,6 +47,18 @@ export class ProfileDetails extends Component {
           {phoneNumber || 'Номер телефону не вказаний'}
         </Popover.Content>
       </Popover>
+    );
+
+    const createSchedule = (
+        <ButtonGroup>
+          <Button>Створити розклад</Button>
+        </ButtonGroup>
+    );
+
+    const createUsers = (
+      <ButtonGroup>
+        <Button>Створити нового користувача</Button>
+      </ButtonGroup>
     );
 
     return (
@@ -93,6 +108,10 @@ export class ProfileDetails extends Component {
                     />
                   </div>
                 </OverlayTrigger>
+              </Col>
+              <Col className='addit-functions' md={12}>
+                {canCreateSchedule && createSchedule}
+                {isAdmin && createUsers}
               </Col>
             </Row>
           </div>

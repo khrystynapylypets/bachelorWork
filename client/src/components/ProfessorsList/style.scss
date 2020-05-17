@@ -36,11 +36,16 @@
         font-weight: bold;
       }
 
-      a {
+      .links {
         position: absolute;
         top: 20px;
         right: 20px;
         display: block;
+
+        label {
+          font-size: 14px;
+          color: $primary;
+        }
       }
     }
 
