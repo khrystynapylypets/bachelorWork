@@ -1,32 +1,34 @@
 import User from '../db/models/User';
 import { hashPassword, comparePassword } from '../helpers/hashPassword';
 
-export const createUserModel = async ({ email, password, firstName, secondName, lastName, dateWork, academicStatus, dateBirth, isAdmin, phoneNumber, canCreateSchedule }) => {
-  let user = await User.findOne({
-    $or: [ { 'email': email } ],
-  });
-
-  if (user) {
-    if (email === user.email) {
-      throw new Error('User with this email is already exist!');
-    }
-  }
-
-  return new User(
-    {
-      email,
-      password: hashPassword(password),
-      firstName,
-      secondName,
-      lastName,
-      dateWork,
-      academicStatus,
-      dateBirth,
-      isAdmin: isAdmin || false,
-      phoneNumber: phoneNumber || null,
-      canCreateSchedule: canCreateSchedule || false,
+export const createUserModel
+  = async ({ email, password, firstName, secondName, lastName, dateWork, academicStatus, dateBirth, isAdmin, phoneNumber, canCreateSchedule, events }) => {
+    let user = await User.findOne({
+      $or: [ { 'email': email } ],
     });
-};
+
+    if (user) {
+      if (email === user.email) {
+        throw new Error('User with this email is already exist!');
+      }
+    }
+
+    return new User(
+      {
+        email,
+        password: hashPassword(password),
+        firstName,
+        secondName,
+        lastName,
+        dateWork,
+        academicStatus,
+        dateBirth,
+        isAdmin: isAdmin || false,
+        phoneNumber: phoneNumber || null,
+        canCreateSchedule: canCreateSchedule || false,
+        events: events || [],
+      });
+  };
 
 export const findUser = async ({ email, password }) => {
   let user = await User.findOne({

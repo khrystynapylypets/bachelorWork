@@ -2,8 +2,27 @@
 
 .events-calendar {
   .card {
+    height: 100%;
+    max-height: 600px;
+    overflow-y: auto;
     background: $white;
     border: 0;
     border-radius: 0;
+  }
+
+  .event-item {
+    p {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .items {
+      font-weight: bold;
+    }
+
+    td {
+      font-size: 12px;
+    }
   }
 }

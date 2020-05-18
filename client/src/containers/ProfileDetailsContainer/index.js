@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { ProfileDetails } from '../../components/ProfilePage/ProfileDetails';
 import { formatDate } from '../../helpers/generalFunctions';
 import { userActions } from '../../store/actions/userActions';
 
-const mapStateToProps = ({user}) => ({
+const mapStateToProps = ({ user }) => ({
   loading: user.selectedUser.loading,
   email: user.selectedUser.email,
   firstName: user.selectedUser.firstName,
@@ -16,6 +17,7 @@ const mapStateToProps = ({user}) => ({
   canCreateSchedule: user.selectedUser.canCreateSchedule,
   created: user.selectedUser.created,
   isAdmin: user.selectedUser.isAdmin,
+  isOwnProfile: _.isEqual(user.selectedUser.id, user.currentUser.id),
 });
 
 function mapDispatchToProps(dispatch) {

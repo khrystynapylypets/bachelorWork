@@ -47,7 +47,11 @@ const UserSchema = new mongoose.Schema({
   canCreateSchedule: {
     type: Boolean,
     default: false,
-  }
+  },
+  events: {
+    type: [ mongoose.Types.ObjectId ],
+    default: [],
+  },
 });
 
 

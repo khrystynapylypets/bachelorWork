@@ -17,8 +17,6 @@ if (token) {
   store.dispatch(userActions.initUser(userData));
 }
 
-console.log(store);
-
 class App extends Component {
   render() {
     return (

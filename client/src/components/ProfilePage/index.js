@@ -9,13 +9,14 @@ import {
 import './style.scss';
 
 export class ProfilePage extends Component {
-
-
   componentWillMount() {
     document.body.classList.add('profile');
   }
 
   componentDidMount() {
+    const { professorsActions } = this.props;
+
+    professorsActions.queryProfessors();
     document.body.classList.add('profile');
   }
 
@@ -23,7 +24,7 @@ export class ProfilePage extends Component {
     document.body.classList.remove('profile');
   }
   render() {
-    const { userId } = this.props;
+    const { userId, eventsList, eventActions } = this.props;
 
     return (
       <PrivateLayout>
@@ -32,7 +33,11 @@ export class ProfilePage extends Component {
             <ProfileDetailsContainer userId={userId} />
           </Col>
           <Col md={4} className='events-column'>
-            <EventsCalendar />
+            <EventsCalendar
+              userId={userId}
+              eventsList={eventsList}
+              eventActions={eventActions}
+            />
           </Col>
         </Row>
       </PrivateLayout>
