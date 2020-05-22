@@ -7,12 +7,10 @@ function* workQueryProfessors() {
     yield put(professorsActions.queryProfessorsLoading());
     let response = yield call(getProfessors);
 
-    console.log(response);
     yield put(professorsActions.queryProfessorsSuccess(response.data.users, response.data.users.length));
   } catch (e) {
     let errorMessage = e.response ? e.response.data.message : e.message;
 
-    console.log(e);
     yield put(professorsActions.queryProfessorsFail(errorMessage));
   }
 }

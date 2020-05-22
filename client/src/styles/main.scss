@@ -14,6 +14,10 @@ body {
     }
   }
 
+  &.modal-is-open {
+    overflow: hidden;
+  }
+
   * {
     &:focus {
       outline: none;
@@ -42,6 +46,18 @@ body {
           background-color: $primary-hover;
           border-color: $primary-hover;
         }
+      }
+    }
+
+    &:disabled {
+      background-color: $primary-hover;
+      border-color: $primary-hover;
+      opacity: .6;
+
+      &:hover {
+        background-color: $primary-hover;
+        border-color: $primary-hover;
+        opacity: .6;
       }
     }
   }
@@ -106,5 +122,46 @@ body {
     width: 50px;
     height: 50px;
     color: $primary !important;
+  }
+
+  .modal-dialog {
+    position: absolute;
+    top: 3%;
+    left: 35%;
+    z-index: 10;
+    width: 90%;
+    height: 80%;
+    max-width: 800px;
+    margin: 0;
+
+    .modal-content {
+      height: 100%;
+      overflow-y: auto;
+    }
+  }
+
+  .react-calendar {
+    border: 1px solid $primary-hover;
+    border-radius: .25rem;
+
+    .react-calendar__tile--active {
+      font-weight: bold;
+      color: $white;
+      background: $primary;
+
+      &:focus {
+        background: $primary;
+      }
+    }
+
+    button {
+      color: $mine-shaft;
+    }
+
+    abbr {
+      &[title] {
+        text-decoration: underline;
+      }
+    }
   }
 }

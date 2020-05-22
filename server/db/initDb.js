@@ -17,7 +17,6 @@ export const createUsers = async () => {
   try {
     let users = data.initialUsers;
 
-    console.log(users);
     users.forEach(async (userData) => {
       const newUser = await createUserModel(userData);
 

@@ -22,7 +22,7 @@ const initialState = {
     loading: true,
     created: null,
     canCreateSchedule: false,
-  }
+  },
 };
 
 export const userReducer = (prevState = initialState, action) => {

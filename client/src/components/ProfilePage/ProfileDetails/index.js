@@ -12,20 +12,44 @@ import {
   Button,
 } from 'react-bootstrap';
 import { AiOutlinePhone, AiOutlineMail } from 'react-icons/ai';
+import CreateEventContainer from '../../../containers/CreateEventContainer';
 import './style.scss';
 
 export class ProfileDetails extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isEventModalOpen: false,
+    };
+  }
+
   componentDidMount() {
     const { userId, userActions } = this.props;
 
     userActions.getUserData(userId);
   }
 
+  handleOpenEventModal = () => {
+    document.body.classList.add('modal-is-open');
+    this.setState({
+      isEventModalOpen: true,
+    });
+  };
+
+  closeEventModal = () => {
+    document.body.classList.remove('modal-is-open');
+    this.setState({
+      isEventModalOpen: false,
+    });
+  };
+
   render() {
     const {
       loading, email, firstName, secondName, lastName, dateWork, academicStatus, dateBirth, phoneNumber, isAdmin,
-      canCreateSchedule,
+      canCreateSchedule, isOwnProfile,
     } = this.props;
+    const { isEventModalOpen } = this.state;
 
     if (loading) {
       return <Spinner animation='border' variant='primary' />;
@@ -50,14 +74,14 @@ export class ProfileDetails extends Component {
     );
 
     const createSchedule = (
-        <ButtonGroup>
-          <Button>Створити розклад</Button>
-        </ButtonGroup>
+      <ButtonGroup>
+        <Button>Створити навчальний план</Button>
+      </ButtonGroup>
     );
 
-    const createUsers = (
+    const createEvent = (
       <ButtonGroup>
-        <Button>Створити нового користувача</Button>
+        <Button onClick={this.handleOpenEventModal}>Створити подію</Button>
       </ButtonGroup>
     );
 
@@ -110,8 +134,8 @@ export class ProfileDetails extends Component {
                 </OverlayTrigger>
               </Col>
               <Col className='addit-functions' md={12}>
-                {canCreateSchedule && createSchedule}
-                {isAdmin && createUsers}
+                {isOwnProfile && canCreateSchedule && createSchedule}
+                {isOwnProfile && isAdmin && createEvent}
               </Col>
             </Row>
           </div>
@@ -149,6 +173,14 @@ export class ProfileDetails extends Component {
             </Table>
           </Jumbotron>
         </Col>
+        {isEventModalOpen
+          && (
+            <CreateEventContainer
+              handleClose={this.closeEventModal}
+              handleSave={this.openEventModal}
+            />
+          )
+        }
       </Row>
     );
   }
