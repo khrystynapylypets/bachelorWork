@@ -18,6 +18,7 @@ export const sendEmail = (emails, emailData) => {
 
   newDate = `${day}-${month}-${year}`;
 
+  console.log(emails);
   const mailOptions = {
     from: 'document.flow.acs@gmail.com',
     to: emails.toString(),

@@ -1,17 +1,17 @@
 import { createEventModel, findAllEvents } from '../services/eventService';
 import { sendEmail } from '../helpers/sendMail';
-import User from '../db/models/User';
+import { findUserById } from '../services/userService';
 
 export const createEvent = async (req, res) => {
   try {
     const eventData = req.body;
 
-    const participantsEmails = eventData.participants.map(async (id) => {
-      const user = await User.findOne({
-        $or: [ { '_id': id } ],
-      });
+    const participantsEmails = [];
 
-      return user.email;
+    eventData.participants.forEach( async(id) => {
+      const user = await findUserById(id);
+
+      return participantsEmails.push(user.email);
     });
 
     let newEvent = await createEventModel(eventData);

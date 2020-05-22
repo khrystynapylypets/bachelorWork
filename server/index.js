@@ -22,7 +22,7 @@ app.listen(envConfig.PORT, () => (
   console.error(`Node listening on port ${envConfig.PORT}`)
 ));
 
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+//app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // All remaining requests return the React app, so it can handle routing.
 app.use('/', routes);
